@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Günlük yaşamda yapay zekâ · Yapay Zekâyı Keşfet</title>
+<meta name="description" content="Öneri sistemleri, çeviri, navigasyon, görüntü tanıma, oyunlar ve erişilebilirlik uygulamalarında yapay zekâ.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@500;600;700&family=Noto+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/site.css">
+<script>try{var t=localStorage.getItem("yz-tema");if(t)document.documentElement.setAttribute("data-theme",JSON.parse(t));if(JSON.parse(localStorage.getItem("yz-sunum")))document.documentElement.classList.add("present-root")}catch(e){}</script>
+</head>
+<body data-page="gunluk">
+<a class="skip" href="#icerik">İçeriğe geç</a>
+<header id="site-header"></header>
+<div class="layout">
+<nav id="sidebar"></nav>
+<main id="icerik" tabindex="-1">
+<article class="content">
+
+<p class="eyebrow">Konu 3 · Çevremizdeki yapay zekâ</p>
+<h1>Günlük yaşamda yapay zekâ</h1>
+<p class="hook">Bugün yapay zekâ kullandın mı? Büyük olasılıkla evet, hem de farkında olmadan birkaç kez. Peki bunu nereden anlayabiliriz?</p>
+
+<section class="box learn" aria-labelledby="ogren">
+  <h2 id="ogren" class="box-label">Bu sayfada ne öğreneceksin?</h2>
+  <ul>
+    <li>Öneri, çeviri, navigasyon, görüntü tanıma, oyun ve erişilebilirlik uygulamalarında yapay zekânın ne iş yaptığını,</li>
+    <li>aynı uygulamanın içinde hem sıradan kuralların hem de öğrenen modellerin bulunabileceğini,</li>
+    <li>bir sistemin yapay zekâ kullanıp kullanmadığının dışarıdan her zaman kesin anlaşılamayacağını.</li>
+  </ul>
+</section>
+
+<section class="box example" aria-labelledby="ornek">
+  <h2 id="ornek" class="box-label">Günlük yaşamdan bir örnek: Bir öğrencinin sabahı</h2>
+  <ol class="steps">
+    <li><strong>07.00 – Alarm çalar.</strong> Bu sıradan bir zamanlayıcıdır; yapay zekâ gerekmez.</li>
+    <li><strong>07.15 – Telefonun kilidi yüzüyle açılır.</strong> Telefon, kameradan aldığı görüntüyü kayıtlı yüzle karşılaştıran bir görüntü tanıma modeli kullanır.</li>
+    <li><strong>07.30 – Müzik uygulaması “Bunu da sevebilirsin” der.</strong> Öneri sistemi, dinleme geçmişine ve benzer dinleyicilerin tercihlerine bakarak tahmin yürütür.</li>
+    <li><strong>07.45 – Harita uygulaması “Okula 18 dakika” der.</strong> Yolu bulmak için klasik bir hesaplama, trafiğin birkaç dakika sonra nasıl olacağını tahmin etmek için öğrenen modeller kullanılabilir.</li>
+    <li><strong>08.20 – İngilizce dersinde çeviri uygulamasına bir cümle yazılır.</strong> Çeviri sistemi, çok sayıda cümle çiftinden öğrenilmiş örüntülere dayanır.</li>
+  </ol>
+</section>
+
+<h2 id="oneri">Öneri sistemleri</h2>
+<p>Video, müzik ve alışveriş uygulamaları sana bir sonraki içeriği önerirken geçmişte neye tıkladığına, bir videoyu ne kadar süre izlediğine, neyi beğendiğine ve sana benzer izleme alışkanlıkları olan kullanıcıların tercihlerine bakar. Sistem bu bilgilerle “bu kullanıcı şu içeriği izler mi?” sorusuna bir olasılık hesaplar ve en yüksek olasılıklı içerikleri öne çıkarır.</p>
+<p class="src" data-src="youtube-oneri,aof-matematik"></p>
+<p>Öneri sistemleri işimizi kolaylaştırır; ama gördüğümüz içeriği de şekillendirir. Bu yüzden “Bu öneriyi neden görüyorum?” diye sormak yararlıdır.</p>
+
+<h2 id="ceviri">Çeviri, ses tanıma ve yazım önerileri</h2>
+<p>Bilgisayarların insan dilini işlemesine <strong>doğal dil işleme</strong> denir. Çeviri uygulamaları, sesli komutları yazıya çeviren klavyeler ve otomatik altyazılar bu alana girer. Bu sistemler çok miktarda metin ve ses kaydından öğrenir. Bu yüzden çok kullanılan dillerde ve konuşma biçimlerinde daha başarılı, az temsil edilen dillerde veya ağızlarda daha zayıf olabilirler.</p>
+<p class="src" data-src="aof-giris"></p>
+
+<h2 id="harita">Harita ve navigasyon</h2>
+<p>Bir harita uygulaması iki farklı işi bir arada yapar. Bir yerden başka bir yere giden en kısa yolu bulmak, onlarca yıldır bilinen <strong>arama algoritmalarıyla</strong> yapılabilir; bunun için öğrenmeye gerek yoktur. Ancak yolculuğun ne kadar süreceğini tahmin etmek için trafiğin birkaç dakika sonra nasıl olacağını kestirmek gerekir. Örneğin Google Haritalar'ın varış süresi tahminleri için Google DeepMind ile birlikte geçmiş trafik verilerinden öğrenen modeller geliştirildiği açıklanmıştır.</p>
+<p class="src" data-src="deepmind-trafik,aof-giris"></p>
+
+<h2 id="goruntu">Görüntü tanıma</h2>
+<p>Bilgisayar için bir fotoğraf, her biri renk değerini gösteren sayılardan (piksellerden) oluşan büyük bir tablodur. <strong>Bilgisayarla görü</strong> sistemleri bu sayılardaki örüntüleri öğrenerek yüzleri, nesneleri, yazıları ve plakaları tanır. Telefonun yüzle kilit açması, galerinin “plaj” aramasında deniz fotoğraflarını bulması ve otoparkta plaka okuyan kameralar bunlara örnektir.</p>
+<p class="src" data-src="aof-giris,seminer"></p>
+
+<h2 id="oyun">Oyunlar</h2>
+<p>Oyunlardaki rakip karakterlerin çoğu, tasarımcıların yazdığı kurallarla hareket eder: “Oyuncu yaklaşırsa kaç, canın azsa saklan” gibi. Bu karakterlere “oyun yapay zekâsı” dense de çoğu veriden öğrenmez. Öte yandan bazı araştırma sistemleri oyunları deneme-yanılmayla, yani kazanınca “ödül” alıp kaybedince ceza alarak öğrenir. Buna <strong>pekiştirmeli öğrenme</strong> denir; Go oyunu oynayan AlphaGo sistemi bu yaklaşımın bilinen örnekleri arasında gösterilir.</p>
+<p class="src" data-src="aof-giris"></p>
+
+<h2 id="erisilebilirlik">Erişilebilirlik</h2>
+<p>Yapay zekâ, engelli bireylerin günlük işlerini kolaylaştıran araçlarda da kullanılır. Örneğin görme engelli ve az gören kişiler için geliştirilen bazı uygulamalar telefon kamerasının gördüğü yazıyı sesli okur, karşıdaki kişiyi veya çevreyi sesli olarak betimler. Otomatik altyazı ve sesi yazıya çevirme özellikleri de işitme engelli kişilere destek olabilir.</p>
+<p class="src" data-src="seeing-ai,aof-giris"></p>
+
+<h2 id="anlasilir-mi">Bir sistemin yapay zekâ kullandığı dışarıdan anlaşılır mı?</h2>
+<p>Her zaman değil. Uygulamalar çoğu zaman içlerinde hangi yöntemleri kullandıklarını göstermez. Aynı uygulamada bazı özellikler sabit kurallarla, bazıları öğrenen modellerle çalışabilir. Üstelik dışarıdan aynı görünen iki yazım denetleyicisinden biri basit bir sözlük listesine, diğeri öğrenen bir modele dayanabilir.</p>
+<p>Bazı ipuçları yardımcı olabilir: Sistem daha önce hiç görmediği girdilere makul cevaplar veriyorsa, zamanla sana göre değişiyorsa veya sonucu “büyük olasılıkla” diye sunuyorsa yapay zekâ kullanıyor olabilir. Ama bunlar kesin kanıt değildir. Kesin bilgi için uygulamanın kendi açıklamalarına ve güvenilir kaynaklara bakmak gerekir.</p>
+<p class="src" data-src="oecd-tanim"></p>
+
+<section class="sim" aria-labelledby="etkinlik">
+  <h2 id="etkinlik">Etkinlik: Yapay zekâ mı, değil mi, yoksa emin olamaz mıyız?</h2>
+  <p>Her örnek için en uygun seçeneği işaretle.</p>
+  <div data-widget="sorter">
+<script type="application/json">
+{"choices":["Büyük olasılıkla yapay zekâ","Büyük olasılıkla kural/otomasyon","Dışarıdan kesin söyleyemeyiz"],
+"items":[
+{"q":"Video uygulamasının ana sayfasında sana özel önerilen videolar","a":0,"fb":"Öneri sistemleri izleme geçmişinden ve benzer kullanıcılardan öğrenen modeller kullanır."},
+{"q":"Telefondaki çalar saat","a":1,"fb":"Belirlenen saatte çalmak için sabit bir zamanlayıcı yeterlidir."},
+{"q":"Bir oyundaki rakip karakter","a":2,"fb":"Çoğu oyun karakteri tasarımcıların yazdığı kurallarla çalışır, bazıları ise öğrenen yöntemler kullanır. Oyunu oynayarak bunu kesin anlayamayız."},
+{"q":"Videolardaki otomatik altyazı","a":0,"fb":"Konuşmayı yazıya çeviren sistemler çok sayıda ses kaydından öğrenen modeller kullanır."},
+{"q":"Düğmeye basınca gelen asansör","a":1,"fb":"Asansörler katlar arasında belirlenmiş kurallara göre hareket eder."},
+{"q":"Kelimelerin altını kırmızıyla çizen yazım denetleyicisi","a":2,"fb":"Basit bir kelime listesiyle de, öğrenen bir modelle de çalışabilir. Dışarıdan bakarak hangisi olduğunu bilemeyiz."},
+{"q":"Galeride “kedi” yazınca kedi fotoğraflarını bulan arama","a":0,"fb":"Fotoğrafların içeriğini tanımak için görüntü tanıma modeli gerekir; fotoğraflarda “kedi” yazmaz."},
+{"q":"Marketteki barkod okuyucu","a":1,"fb":"Barkoddaki çizgiler belirli bir kurala göre sayılara çevrilir. Bu işlem için öğrenmeye gerek yoktur."}
+]}
+</script>
+  </div>
+</section>
+
+<details class="more">
+  <summary>Biraz daha keşfet: Yapay zekânın kullanıldığı diğer alanlar</summary>
+  <div class="more-body">
+    <p>Sağlıkta tıbbi görüntülerin incelenmesine yardım eden sistemler, tarımda bitki hastalıklarını fotoğraftan tanıyan uygulamalar, fabrikalarda arızayı önceden tahmin eden modeller, bankalarda şüpheli işlemleri fark eden sistemler de yapay zekâ kullanır. Bu alanlarda yapay zekâ genellikle uzmanların yerine geçmek için değil, onlara yardımcı olmak için kullanılır ve son karar insanda kalır.</p>
+    <p class="src" data-src="aof-giris"></p>
+    <p>Eğitimde de öğrencinin hızına göre içerik öneren sistemler kullanılır. Örneğin Millî Eğitim Bakanlığının Bireysel Öğrenme Platformu, kişiselleştirilmiş öğrenmeye bir örnek olarak gösterilir.</p>
+    <p class="src" data-src="aof-giris"></p>
+    <p>Millî Eğitim Bakanlığı da 2025'te yapay zekânın eğitimde etkin, etik ve kapsayıcı biçimde kullanılması için 4 hedef, 15 politika ve 40 eylem adımından oluşan “Eğitimde Yapay Zekâ Politika Belgesi ve Eylem Planı (2025–2029)”nı yürürlüğe koymuştur.</p>
+    <p class="src" data-src="meb-politika-haber"></p>
+  </div>
+</details>
+
+<section class="box mistake" aria-labelledby="yanlis">
+  <h2 id="yanlis" class="box-label">Sık yapılan bir yanlış</h2>
+  <p><strong>“Yapay zekâ sadece sohbet botları ve robotlardır.”</strong></p>
+  <p>Sohbet botları yapay zekânın en görünür örneklerinden biri ama yalnızca biri. Yapay zekâ çoğu zaman görünmez biçimde çalışır: Önerilerin arkasında, fotoğraf galerisinde, harita uygulamasında, istenmeyen e-posta kutusunda. Robotların da hepsi yapay zekâ kullanmaz; birçoğu sabit hareketleri tekrar eden makinelerdir.</p>
+</section>
+
+<section class="box discuss" aria-labelledby="tartis">
+  <h2 id="tartis" class="box-label">Sınıfça tartışalım</h2>
+  <p>Öneri sistemleri bize hep sevdiğimiz türden içerikler gösterirse, ilgi alanlarımız genişler mi yoksa daralır mı? Farklı türden içerikler keşfetmek için neler yapabiliriz?</p>
+</section>
+
+<h2 id="kontrol">Kendini kontrol et</h2>
+<div class="quiz-q" data-answer="b"><fieldset>
+  <legend>1. Bir harita uygulaması için hangisi doğrudur?</legend>
+  <label class="opt"><input type="radio" value="a"> Uygulamadaki tüm hesaplar yapay zekâ ile yapılır.</label>
+  <label class="opt"><input type="radio" value="b"> En kısa yolu bulmak klasik algoritmalarla, varış süresini tahmin etmek öğrenen modellerle yapılabilir.</label>
+  <label class="opt"><input type="radio" value="c"> Harita uygulamaları hiçbir zaman yapay zekâ kullanmaz.</label>
+  <div class="fb-data" hidden>
+    <p data-for="a">Yol bulma gibi bazı işler için öğrenmeye gerek yoktur; bunlar bilinen hesaplama yöntemleriyle yapılır.</p>
+    <p data-for="b">Bir uygulama içinde hem sıradan algoritmalar hem de öğrenen modeller birlikte çalışabilir.</p>
+    <p data-for="c">Trafik ve varış süresi tahmini için öğrenen modeller kullanıldığı açıklanmıştır.</p>
+  </div>
+</fieldset></div>
+
+<div class="quiz-q" data-answer="c"><fieldset>
+  <legend>2. Bir oyundaki rakip karakterin yapay zekâ kullanıp kullanmadığını oyunu oynayarak anlayabilir miyiz?</legend>
+  <label class="opt"><input type="radio" value="a"> Evet, akıllı davranıyorsa kesinlikle öğrenen bir yapay zekâdır.</label>
+  <label class="opt"><input type="radio" value="b"> Evet, hiçbir oyun karakteri yapay zekâ kullanmaz.</label>
+  <label class="opt"><input type="radio" value="c"> Her zaman anlayamayız; karakter kurallarla da öğrenen yöntemlerle de çalışabilir.</label>
+  <div class="fb-data" hidden>
+    <p data-for="a">İyi yazılmış kurallar da çok akıllıca görünen davranışlar ortaya çıkarabilir.</p>
+    <p data-for="b">Bazı oyunlarda ve araştırmalarda öğrenen yöntemler kullanılır.</p>
+    <p data-for="c">Dışarıdan bakarak sistemin içini göremeyiz; kesin bilgi için geliştiricinin açıklamalarına bakmak gerekir.</p>
+  </div>
+</fieldset></div>
+
+<div class="quiz-q" data-answer="a"><fieldset>
+  <legend>3. Görme engelli kişiler için geliştirilen bazı uygulamalar yapay zekâyı nasıl kullanır?</legend>
+  <label class="opt"><input type="radio" value="a"> Kameranın gördüğü yazıyı, kişileri veya çevreyi sesli olarak betimler.</label>
+  <label class="opt"><input type="radio" value="b"> Telefonun ekran parlaklığını artırır.</label>
+  <label class="opt"><input type="radio" value="c"> Kişinin yerine karar verir.</label>
+  <div class="fb-data" hidden>
+    <p data-for="a">Görüntü tanıma ve metin okuma modelleri, görsel bilgiyi sese dönüştürerek destek olur.</p>
+    <p data-for="b">Parlaklığı artırmak için yapay zekâ gerekmez.</p>
+    <p data-for="c">Bu araçlar bilgi sağlar; kararı kişinin kendisi verir.</p>
+  </div>
+</fieldset></div>
+
+<section class="box remember" aria-labelledby="akilda">
+  <h2 id="akilda" class="box-label">Aklında kalsın</h2>
+  <ol>
+    <li>Yapay zekâ çoğu zaman görünmez çalışır: öneriler, çeviri, harita, fotoğraf galerisi, altyazılar…</li>
+    <li>Aynı uygulamada sıradan kurallar ve öğrenen modeller bir arada bulunabilir.</li>
+    <li>Bir sistemin yapay zekâ kullanıp kullanmadığı dışarıdan her zaman kesin anlaşılamaz.</li>
+  </ol>
+</section>
+
+<div id="complete-row"></div>
+<nav id="pager"></nav>
+</article>
+</main>
+</div>
+<footer id="site-footer"></footer>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/search-index.js"></script>
+<script src="assets/js/site.js"></script>
+<script src="assets/js/shapelab.js"></script>
+<script src="assets/js/sims.js"></script>
+</body>
+</html>

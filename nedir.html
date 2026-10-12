@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Yapay zekâ nedir, ne değildir? · Yapay Zekâyı Keşfet</title>
+<meta name="description" content="Yapay zekâ, sıradan yazılım ve otomasyon arasındaki fark; yapay zekâ, makine öğrenmesi ve derin öğrenme ilişkisi.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@500;600;700&family=Noto+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/site.css">
+<script>try{var t=localStorage.getItem("yz-tema");if(t)document.documentElement.setAttribute("data-theme",JSON.parse(t));if(JSON.parse(localStorage.getItem("yz-sunum")))document.documentElement.classList.add("present-root")}catch(e){}</script>
+</head>
+<body data-page="nedir">
+<a class="skip" href="#icerik">İçeriğe geç</a>
+<header id="site-header"></header>
+<div class="layout">
+<nav id="sidebar"></nav>
+<main id="icerik" tabindex="-1">
+<article class="content">
+
+<p class="eyebrow">Konu 2 · Temel kavramlar</p>
+<h1>Yapay zekâ nedir, ne değildir?</h1>
+<p class="hook">Hesap makinesi dört basamaklı iki sayıyı göz açıp kapayıncaya kadar çarpar. Peki hesap makinesi “zeki” midir? Fotoğraftaki kediyi tanıyan bir uygulamanın ondan farkı ne?</p>
+
+<section class="box learn" aria-labelledby="ogren">
+  <h2 id="ogren" class="box-label">Bu sayfada ne öğreneceksin?</h2>
+  <ul>
+    <li>Bir yapay zekâ sisteminin ne yaptığını kendi cümlelerinle anlatmayı,</li>
+    <li>kurala dayalı yazılım, otomasyon ve yapay zekâ arasındaki farkı,</li>
+    <li>her dijital aracın ya da “akıllı” adlı her ürünün yapay zekâ olmadığını,</li>
+    <li>yapay zekâ, makine öğrenmesi ve derin öğrenme arasındaki ilişkiyi.</li>
+  </ul>
+</section>
+
+<h2 id="tanim">Kısa bir tanım</h2>
+<p>Yapay zekâ, tek bir makine ya da program değil, bir bilim ve teknoloji alanının adıdır. Uluslararası kuruluşların kullandığı tanıma göre bir <strong>yapay zekâ sistemi</strong>, kendisine verilen girdilere bakarak bir hedef doğrultusunda <strong>tahmin, öneri, karar veya içerik</strong> gibi çıktılar üretmenin yolunu <strong>çıkaran</strong> makine tabanlı bir sistemdir.</p>
+<p class="src" data-src="oecd-tanim"></p>
+<p>Buradaki önemli kelime “çıkarmak”tır. Hesap makinesi ne yapacağını önceden yazılmış kesin kurallardan bilir. Bir yapay zekâ sistemi ise çoğu zaman, daha önce görmediği bir girdi için en uygun çıktının ne olabileceğini <em>tahmin eder</em>. Örneğin hiç görmediği bir kedi fotoğrafına “kedi” der.</p>
+<p>Modern yapay zekâ sistemlerinin çoğu bu yeteneği <strong>veriden öğrenerek</strong> kazanır: Geliştiriciler her kuralı tek tek yazmaz; sistem çok sayıda örnekteki örüntüleri bulur ve bunları yeni durumlara uygular.</p>
+<p class="src" data-src="aof-giris,aof-matematik"></p>
+
+<h2 id="uc-yaklasim">Üç farklı yaklaşım: kural, otomasyon, yapay zekâ</h2>
+<div class="table-wrap">
+<table>
+  <thead><tr><th scope="col"></th><th scope="col">Kurala dayalı yazılım</th><th scope="col">Otomasyon</th><th scope="col">Öğrenen yapay zekâ</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">Nasıl çalışır?</th><td>İnsanların açıkça yazdığı kuralları uygular.</td><td>Önceden belirlenmiş adımları insan müdahalesi olmadan tekrar eder.</td><td>Örneklerden örüntü öğrenir; yeni durumlar için tahmin yürütür.</td></tr>
+    <tr><th scope="row">Aynı girdi verilirse</th><td>Her zaman aynı çıktıyı verir.</td><td>Her zaman aynı adımları izler.</td><td>Çoğunlukla aynı sonucu verir, ancak bazı sistemler (örneğin sohbet botları) farklı cevaplar üretebilir.</td></tr>
+    <tr><th scope="row">Beklenmedik durumda</th><td>Kuralı yoksa yapamaz.</td><td>Durabilir veya hata verebilir.</td><td>Bir tahmin üretir; tahmin yanlış olabilir.</td></tr>
+    <tr><th scope="row">Örnek</th><td>Hesap makinesi; “not 50 ve üstüyse geçti yaz” diyen tablo formülü</td><td>Her ders sonunda çalan okul zili; sabit programlı çamaşır makinesi</td><td>İstenmeyen e-posta filtresi; fotoğraftaki yüzleri gruplayan galeri</td></tr>
+  </tbody>
+</table>
+</div>
+<p class="src" data-src="aof-giris,aof-matematik"></p>
+
+<figure class="diagram">
+  <svg viewBox="0 0 720 300" role="img" aria-labelledby="d1t d1d">
+    <title id="d1t">Geleneksel programlama ile makine öğrenmesinin karşılaştırılması</title>
+    <desc id="d1d">Üstte: Kurallar ve veri programa girer, cevaplar çıkar. Altta: Veri ve doğru cevaplar (etiketler) öğrenme sürecine girer, ortaya kurallar gibi çalışan bir model çıkar. Model sonra yeni veriler için tahmin üretir.</desc>
+    <defs><marker id="ok1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" class="svg-arrow"/></marker></defs>
+    <text x="16" y="28" class="svg-text" font-size="16" font-weight="700">Geleneksel programlama</text>
+    <rect x="16" y="44" width="150" height="44" rx="10" class="svg-box"/><text x="91" y="72" text-anchor="middle" class="svg-text" font-size="15">Kurallar</text>
+    <rect x="16" y="98" width="150" height="44" rx="10" class="svg-box"/><text x="91" y="126" text-anchor="middle" class="svg-text" font-size="15">Veri</text>
+    <rect x="260" y="70" width="170" height="50" rx="12" class="svg-primary" stroke-width="2"/><text x="345" y="101" text-anchor="middle" class="svg-text" font-size="15">Program</text>
+    <rect x="520" y="70" width="170" height="50" rx="12" class="svg-accent" stroke-width="2"/><text x="605" y="101" text-anchor="middle" class="svg-text" font-size="15">Cevaplar</text>
+    <path d="M166 66 L256 90" class="svg-line" stroke-width="2" marker-end="url(#ok1)"/><path d="M166 120 L256 100" class="svg-line" stroke-width="2" marker-end="url(#ok1)"/><path d="M430 95 L516 95" class="svg-line" stroke-width="2" marker-end="url(#ok1)"/>
+    <text x="16" y="186" class="svg-text" font-size="16" font-weight="700">Makine öğrenmesi</text>
+    <rect x="16" y="200" width="150" height="44" rx="10" class="svg-box"/><text x="91" y="228" text-anchor="middle" class="svg-text" font-size="15">Veri (örnekler)</text>
+    <rect x="16" y="252" width="150" height="44" rx="10" class="svg-box"/><text x="91" y="280" text-anchor="middle" class="svg-text" font-size="15">Doğru cevaplar</text>
+    <rect x="260" y="224" width="170" height="50" rx="12" class="svg-primary" stroke-width="2"/><text x="345" y="255" text-anchor="middle" class="svg-text" font-size="15">Öğrenme (eğitim)</text>
+    <rect x="520" y="224" width="170" height="50" rx="12" class="svg-accent" stroke-width="2"/><text x="605" y="248" text-anchor="middle" class="svg-text" font-size="15">Model</text><text x="605" y="266" text-anchor="middle" class="svg-muted" font-size="12">(öğrenilmiş “kurallar”)</text>
+    <path d="M166 222 L256 244" class="svg-line" stroke-width="2" marker-end="url(#ok1)"/><path d="M166 274 L256 254" class="svg-line" stroke-width="2" marker-end="url(#ok1)"/><path d="M430 249 L516 249" class="svg-line" stroke-width="2" marker-end="url(#ok1)"/>
+  </svg>
+  <figcaption>Geleneksel programlamada kuralları insan yazar. Makine öğrenmesinde ise sistem, örneklerden ve doğru cevaplardan kendi “kurallarını”, yani modelini çıkarır.</figcaption>
+</figure>
+<p class="src" data-src="aof-giris,meb-antalya"></p>
+
+<details class="more">
+  <summary>Biraz daha keşfet: Öğrenmeyen yapay zekâ da olur mu?</summary>
+  <div class="more-body">
+    <p>Evet. Yapay zekânın tarihinde uzmanların bilgisini yüzlerce “eğer … ise …” kuralıyla bilgisayara aktaran <strong>uzman sistemler</strong> önemli bir yer tutar. Satranç programları gibi bazı sistemler de olası hamleleri hızla arayıp değerlendirerek çalışır. Yani yapay zekâ, makine öğrenmesinden daha geniş bir alandır. Ancak bugün en çok konuşulan uygulamaların büyük kısmı veriden öğrenen sistemlerdir.</p>
+    <p class="src" data-src="aof-giris,seminer"></p>
+    <p>Bir de “dar” ve “genel” yapay zekâ ayrımı vardır. Bugünkü sistemlerin büyük çoğunluğu yüz tanıma, çeviri veya öneri gibi belirli görevler için tasarlanmıştır. Sohbet botları pek çok konuda metin üretebildiği için “genel” görünebilir; ancak insan gibi her alanda öğrenip yeni durumlara esnekçe uyum sağlayan bir <strong>genel yapay zekâ</strong> henüz yoktur. Bunun ne zaman, hatta mümkün olup olmayacağı konusunda araştırmacılar arasında görüş birliği bulunmaz.</p>
+    <p class="src" data-src="aof-giris"></p>
+  </div>
+</details>
+
+<h2 id="iliski">Yapay zekâ, makine öğrenmesi, derin öğrenme</h2>
+<p>Bu üç kavram sık sık birbirinin yerine kullanılır, ama aynı şey değildir. İç içe geçmiş halkalar gibi düşünebilirsin:</p>
+<figure class="diagram">
+  <svg viewBox="0 0 720 330" role="img" aria-labelledby="d2t d2d">
+    <title id="d2t">İç içe halkalar: Yapay zekâ, makine öğrenmesi, derin öğrenme, üretken yapay zekâ</title>
+    <desc id="d2d">En dışta yapay zekâ, onun içinde makine öğrenmesi, onun içinde derin öğrenme yer alır. Üretken yapay zekâ uygulamalarının çoğu derin öğrenme kullanır.</desc>
+    <ellipse cx="300" cy="165" rx="285" ry="155" class="svg-box" stroke-width="2"/>
+    <ellipse cx="345" cy="185" rx="215" ry="120" class="svg-primary" stroke-width="2"/>
+    <ellipse cx="395" cy="205" rx="145" ry="82" class="svg-accent" stroke-width="2"/>
+    <ellipse cx="430" cy="222" rx="72" ry="42" class="svg-warn" stroke-width="2"/>
+    <text x="70" y="70" class="svg-text" font-size="17" font-weight="700">Yapay zekâ</text>
+    <text x="70" y="92" class="svg-muted" font-size="13">Kurallar, arama, öğrenme…</text>
+    <text x="170" y="120" class="svg-text" font-size="16" font-weight="700">Makine öğrenmesi</text>
+    <text x="170" y="140" class="svg-muted" font-size="13">Veriden öğrenen yöntemler</text>
+    <text x="285" y="175" class="svg-text" font-size="15" font-weight="700">Derin öğrenme</text>
+    <text x="285" y="193" class="svg-muted" font-size="12">Çok katmanlı sinir ağları</text>
+    <text x="430" y="218" text-anchor="middle" class="svg-text" font-size="13" font-weight="700">Üretken</text>
+    <text x="430" y="234" text-anchor="middle" class="svg-text" font-size="13" font-weight="700">yapay zekâ</text>
+    <text x="600" y="60" class="svg-muted" font-size="13">Örnek: uzman sistem</text>
+    <text x="600" y="110" class="svg-muted" font-size="13">Örnek: spam filtresi</text>
+    <text x="600" y="160" class="svg-muted" font-size="13">Örnek: yüz tanıma</text>
+    <text x="600" y="290" class="svg-muted" font-size="13">Örnek: sohbet botu</text>
+  </svg>
+  <figcaption>Makine öğrenmesi yapay zekânın bir alt alanıdır; derin öğrenme de makine öğrenmesinin çok katmanlı yapay sinir ağları kullanan bir türüdür. Bugünkü üretken yapay zekâ uygulamalarının çoğu derin öğrenmeye dayanır.</figcaption>
+</figure>
+<p class="src" data-src="meb-antalya,seminer,aof-giris"></p>
+
+<h2 id="dusunur-mu">Yapay zekâ düşünebilir mi?</h2>
+<p>Bu sorunun cevabı “düşünmek” kelimesine ne anlam verdiğimize bağlıdır. Bilim insanları burada üç kavramı birbirinden ayırır:</p>
+<div class="grid">
+  <div class="card"><h3>Zekâ</h3><p>Öğrenme, problem çözme ve yeni durumlara uyum sağlama becerisi. Davranışa bakılarak gözlemlenebilir.</p></div>
+  <div class="card"><h3>Hesaplama</h3><p>Verilerin belirli kurallarla işlenmesi. Bilgisayarlar ve bugünkü yapay zekâ modelleri çok büyük ölçekli hesaplama sistemleridir.</p></div>
+  <div class="card"><h3>Bilinç</h3><p>Kendinin ve çevrenin farkında olmak, bir şeyler “hissetmek”. Doğrudan gözlemlenemez.</p></div>
+</div>
+<p>Bugünkü yapay zekâ sistemleri bazı görevlerde zekice <em>davranabilir</em>: metin yazabilir, görüntüdeki nesneleri tanıyabilir, sohbet ediyormuş gibi görünebilir. Bunu deneyim veya niyetle değil, verilerden öğrenilmiş ilişkilere dayanan matematiksel hesaplarla yapar. Zekice davranmak, bilinçli olmak anlamına gelmez. Bugünkü sistemlerin duygu ya da bilinç sahibi olduğuna dair bilimsel bir kanıt yoktur; ancak makinelerde bilincin mümkün olup olmadığı, felsefede ve bilimde hâlâ tartışılan açık bir sorudur.</p>
+<p class="src" data-src="aof-giris,meb-antalya"></p>
+
+<section class="box example" aria-labelledby="ornek">
+  <h2 id="ornek" class="box-label">Günlük yaşamdan bir örnek: “Akıllı” her şey yapay zekâ mı?</h2>
+  <p>Sınıftaki etkileşimli tahtaya “akıllı tahta” deriz. Ekrana dokunduğunda kalemin çizgi çizmesi, dokunma sensörünün verdiği konuma göre kesin kurallarla çalışır; bu bir yapay zekâ değildir. Ama aynı tahtada el yazını bilgisayar yazısına çeviren bir özellik varsa, bu özellik büyük olasılıkla binlerce el yazısı örneğinden öğrenen bir model kullanır.</p>
+  <p>Yani bir ürünün adı değil, <strong>işini nasıl yaptığı</strong> önemlidir. Aynı cihazın içinde hem sıradan kurallar hem de öğrenen modeller bir arada bulunabilir.</p>
+</section>
+
+<section class="sim" aria-labelledby="ayir">
+  <h2 id="ayir">Etkinlik: Hangisi hangisi?</h2>
+  <p>Her araç için en uygun açıklamayı seç. Seçiminden sonra kısa bir açıklama göreceksin.</p>
+  <div data-widget="sorter">
+<script type="application/json">
+{"choices":["Kurala dayalı yazılım","Otomasyon","Öğrenen yapay zekâ"],
+"items":[
+{"q":"Hesap makinesi uygulaması","a":0,"fb":"Toplama, çarpma gibi işlemlerin kuralları kesindir ve tek tek yazılmıştır. Öğrenmeye gerek yoktur."},
+{"q":"Her ders sonunda saat ayarına göre çalan okul zili","a":1,"fb":"Zil, önceden belirlenen saatlerde kendiliğinden çalar. Kendi başına çalışır ama bir şey öğrenmez."},
+{"q":"Gelen e-postaları “istenmeyen” ve “normal” diye ayıran filtre","a":2,"fb":"Bu filtreler genellikle çok sayıda etiketli e-posta örneğinden hangi özelliklerin istenmeyen iletilere işaret ettiğini öğrenir."},
+{"q":"Not 50 ve üstüyse “geçti”, altındaysa “kaldı” yazan tablo formülü","a":0,"fb":"Kural açık ve tek: 50 eşiği. Formül bu kuralı her satıra aynen uygular."},
+{"q":"Hava karardığında ışık sensörüyle kendiliğinden yanan sokak lambası","a":1,"fb":"Sensör belirli bir ışık seviyesinin altına inildiğini algılayınca lamba yanar. Bu, sabit bir kurala bağlı otomasyondur."},
+{"q":"Konuştuklarını yazıya çeviren telefon klavyesi","a":2,"fb":"Ses tanıma sistemleri, binlerce saatlik ses kaydı ve karşılık gelen metinlerden öğrenen modeller kullanır."},
+{"q":"Fotoğraf galerisinde aynı kişinin fotoğraflarını bir araya toplayan özellik","a":2,"fb":"Bu özellik, yüzlerdeki örüntüleri karşılaştıran bir görüntü tanıma modeli kullanır."},
+{"q":"Sabit programlı çamaşır makinesi (her seçimde aynı süre ve sıcaklık)","a":1,"fb":"Program adımları önceden belirlenmiştir ve her seferinde aynen tekrarlanır."}
+]}
+</script>
+  </div>
+  <p class="note">Not: Bazı çamaşır makineleri veya klavyeler farklı yöntemler kullanabilir. Buradaki açıklamalar, örnekte anlatılan çalışma biçimine göredir.</p>
+</section>
+
+<section class="box mistake" aria-labelledby="yanlis">
+  <h2 id="yanlis" class="box-label">Sık yapılan bir yanlış</h2>
+  <p><strong>“Bilgisayarın yaptığı ve akıllıca görünen her şey yapay zekâdır.”</strong></p>
+  <p>Bilgisayarlar yapay zekâ olmadan da çok hızlı ve “akıllıca görünen” işler yapar: hesaplar, sıralar, arar, kayıt tutar. Bir sistemi yapay zekâ yapan şey hızlı olması değil, girdilerden tahmin, öneri, karar veya içerik çıkarmasıdır. Öte yandan “yapay zekâ = robot” düşüncesi de yanlıştır: Yapay zekânın çoğu, gövdesi olmayan yazılımlardır.</p>
+</section>
+
+<section class="box discuss" aria-labelledby="tartis">
+  <h2 id="tartis" class="box-label">Sınıfça tartışalım</h2>
+  <p>Sınıfımızda veya evimizde “akıllı” diye adlandırılan üç cihaz düşünün. Bunlardan hangileri yapay zekâ kullanıyor olabilir? Bir cihazın yapay zekâ kullandığını düşünmemiz için hangi özelliği olması gerekir?</p>
+</section>
+
+<h2 id="kontrol">Kendini kontrol et</h2>
+<div class="quiz-q" data-answer="c"><fieldset>
+  <legend>1. Aşağıdakilerden hangisi kurallarını çoğunlukla örneklerden öğrenen bir sisteme örnektir?</legend>
+  <label class="opt"><input type="radio" value="a"> Hesap makinesi</label>
+  <label class="opt"><input type="radio" value="b"> Her gün 08.30'da çalan okul zili</label>
+  <label class="opt"><input type="radio" value="c"> İstenmeyen e-postaları ayıran filtre</label>
+  <label class="opt"><input type="radio" value="d"> “50 ve üstü geçti” formülü</label>
+  <div class="fb-data" hidden>
+    <p data-for="a">Hesap makinesinin kuralları kesindir ve programcı tarafından yazılmıştır.</p>
+    <p data-for="b">Zil önceden ayarlanmış bir saate göre çalışan bir otomasyondur; bir şey öğrenmez.</p>
+    <p data-for="c">Filtreler, “istenmeyen” ve “normal” diye etiketlenmiş çok sayıda e-postadan örüntü öğrenir ve yeni e-postalar için tahmin yürütür.</p>
+    <p data-for="d">Bu formül insanın yazdığı tek bir kuralı uygular.</p>
+  </div>
+</fieldset></div>
+
+<div class="quiz-q" data-answer="b"><fieldset>
+  <legend>2. Yapay zekâ, makine öğrenmesi ve derin öğrenme ile ilgili hangisi doğrudur?</legend>
+  <label class="opt"><input type="radio" value="a"> Her yapay zekâ sistemi makine öğrenmesi kullanır.</label>
+  <label class="opt"><input type="radio" value="b"> Derin öğrenme, makine öğrenmesinin bir türüdür.</label>
+  <label class="opt"><input type="radio" value="c"> Makine öğrenmesi, yapay zekâdan daha geniş bir alandır.</label>
+  <div class="fb-data" hidden>
+    <p data-for="a">Kurallarla çalışan uzman sistemler veya arama yapan satranç programları gibi, öğrenmeyen yapay zekâ sistemleri de vardır.</p>
+    <p data-for="b">Derin öğrenme, çok katmanlı yapay sinir ağları kullanan bir makine öğrenmesi yaklaşımıdır. Makine öğrenmesi de yapay zekânın bir alt alanıdır.</p>
+    <p data-for="c">Tersi doğrudur: Makine öğrenmesi, yapay zekânın içindeki bir alandır.</p>
+  </div>
+</fieldset></div>
+
+<div class="quiz-q" data-answer="b"><fieldset>
+  <legend>3. Bir uygulamanın adında “akıllı” kelimesi geçiyor. Bu bilgi bize ne söyler?</legend>
+  <label class="opt"><input type="radio" value="a"> Uygulama kesinlikle yapay zekâ kullanıyordur.</label>
+  <label class="opt"><input type="radio" value="b"> Tek başına bir şey söylemez; uygulamanın işini nasıl yaptığına bakmak gerekir.</label>
+  <label class="opt"><input type="radio" value="c"> Uygulama kesinlikle yapay zekâ kullanmıyordur.</label>
+  <div class="fb-data" hidden>
+    <p data-for="a">“Akıllı” kelimesi çoğu zaman pazarlama amacıyla kullanılır. Kurallarla çalışan pek çok ürün de bu adı taşır.</p>
+    <p data-for="b">Ürünün adı değil, girdilerden tahmin, öneri, karar veya içerik çıkarıp çıkarmadığı önemlidir.</p>
+    <p data-for="c">Adı ne olursa olsun bazı “akıllı” ürünler gerçekten öğrenen modeller kullanabilir.</p>
+  </div>
+</fieldset></div>
+
+<section class="box remember" aria-labelledby="akilda">
+  <h2 id="akilda" class="box-label">Aklında kalsın</h2>
+  <ol>
+    <li>Yapay zekâ sistemi, girdilerden tahmin, öneri, karar veya içerik gibi çıktılar <em>çıkaran</em> bir sistemdir; çoğu bunu örneklerden öğrenerek yapar.</li>
+    <li>Her bilgisayar programı ya da “akıllı” adlı her ürün yapay zekâ değildir; kurallar ve otomasyon da çok güçlü olabilir.</li>
+    <li>Zekice davranmak, düşünmek veya hissetmek ile aynı şey değildir; bilinç konusu hâlâ tartışılmaktadır.</li>
+  </ol>
+</section>
+
+<div id="complete-row"></div>
+<nav id="pager"></nav>
+</article>
+</main>
+</div>
+<footer id="site-footer"></footer>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/search-index.js"></script>
+<script src="assets/js/site.js"></script>
+<script src="assets/js/shapelab.js"></script>
+<script src="assets/js/sims.js"></script>
+</body>
+</html>

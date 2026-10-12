@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tüm kaynaklar · Yapay Zekâyı Keşfet</title>
+<meta name="description" content="Sitede kullanılan tüm kaynakların listesi: kurum/yazar, başlık, yıl, bağlantı, kullanıldığı konular ve erişim tarihi.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@500;600;700&family=Noto+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/site.css">
+<script>try{var t=localStorage.getItem("yz-tema");if(t)document.documentElement.setAttribute("data-theme",JSON.parse(t));if(JSON.parse(localStorage.getItem("yz-sunum")))document.documentElement.classList.add("present-root")}catch(e){}</script>
+</head>
+<body data-page="kaynaklar">
+<a class="skip" href="#icerik">İçeriğe geç</a>
+<header id="site-header"></header>
+<div class="layout">
+<nav id="sidebar"></nav>
+<main id="icerik" tabindex="-1">
+<article class="content">
+
+<p class="eyebrow">Kaynakça</p>
+<h1>Tüm kaynaklar</h1>
+<p class="lead">Bu sitedeki açıklamalar aşağıdaki kaynaklara dayanır. Metinler kaynaklardan kopyalanmamış, ortaokul düzeyine uygun biçimde yeniden yazılmıştır. Her önemli açıklamanın altındaki kaynak notu, o bilgiyi destekleyen kaynağı gösterir.</p>
+
+<section class="box" aria-labelledby="yontem">
+  <h2 id="yontem" class="box-label">Kaynaklar nasıl kullanıldı?</h2>
+  <ul>
+    <li><strong>Verilen dosyalar:</strong> Site için verilen altı dosyanın (iki ders kitabı/özet, üç eğitici eğitimi sunumu ve bir seminer sunumu) tamamı incelendi. Bu dosyaların internette açık bir adresi olmadığı için kaynak notlarındaki bağlantılar bu sayfadaki ilgili kayda gider.</li>
+    <li><strong>Web kaynakları:</strong> Resmî kurumların, üniversitelerin ve konuyla ilgili teknik kuruluşların sayfaları doğrudan açılarak okundu. Tüm web kaynaklarına erişim tarihi: <strong>12 Ekim 2026</strong>.</li>
+    <li><strong>Erişilemeyenler:</strong> UNESCO'nun yayın veri tabanındaki (unesdoc.unesco.org) tam metinler bot koruması nedeniyle açılamadı; bu yayınlar için yalnızca UNESCO'nun resmî tanıtım sayfaları kullanıldı ve bilgiler bu sayfalardaki kapsamla sınırlı tutuldu. Genel web arama aracı çalışmadığı için kaynaklar bilinen resmî adreslerden doğrudan açıldı.</li>
+    <li><strong>Doğrulama:</strong> Kaynaklar arasında çelişki veya doğrulanamayan bilgi olduğunda bilgi aktarılmadı ya da düzeltildi (aşağıdaki listeye bakın).</li>
+  </ul>
+</section>
+
+<h2 id="verilen">Verilen dosyalar</h2>
+<ul class="src-list" id="list-dosya"></ul>
+
+<h2 id="web">Web kaynakları</h2>
+<ul class="src-list" id="list-web"></ul>
+
+<h2 id="duzeltmeler">Kaynaklarda düzeltilen veya aktarılmayan noktalar</h2>
+<p>Verilen kaynaklardaki bazı bilgiler eski, doğrulanamayan veya öğrenciler için yanıltıcı olabilecek genellemeler içerdiğinden aynen aktarılmadı:</p>
+<div class="table-wrap"><table>
+  <thead><tr><th>Kaynaktaki ifade</th><th>Sitede yapılan</th></tr></thead>
+  <tbody>
+    <tr><td>Büyük dil modelleri için “parametre (nöron) sayısı” tablosu ve bazı modeller için trilyonlarca parametre tahmini (Derin Öğrenme sunumu)</td><td>Şirketlerce açıklanmamış tahminler olduğu için kullanılmadı. Ayrıca parametre ile nöronun farklı kavramlar olduğu açıklandı.</td></tr>
+    <tr><td>“Kayıp fonksiyonu azaldıkça modelin doğruluğu artar.” (Derin Öğrenme sunumu)</td><td>Eğitim hatası düşerken test başarısı düşebileceği (aşırı uyum) açıklandı; başarının görülmemiş örneklerle ölçüldüğü vurgulandı.</td></tr>
+    <tr><td>Boy ve kilodan cinsiyet tahmin eden örnek (Derin Öğrenme sunumu)</td><td>İnsan gruplarını damgalayabileceği için kullanılmadı; yerine şekil, meyve ve kapı örnekleri kullanıldı.</td></tr>
+    <tr><td>Model adları, çıkış tarihleri ve fiyatlar tablosu (Seminer); araç karşılaştırmaları (Antalya sunumu)</td><td>Hızla değişen ve doğrulanamayan ürün bilgisi olduğu için kullanılmadı.</td></tr>
+    <tr><td>“Yapay zekâ, bilgisayarların insan zekâsını taklit etmesidir.” (Seminer)</td><td>Daha kapsayıcı olan OECD tanımı temel alındı.</td></tr>
+    <tr><td>Üretken yapay zekânın öğrenmesinin “insan beyninin tecrübelerden öğrenmesi gibi” olduğu (Seminer)</td><td>Makine öğrenmesinin insan öğrenmesiyle aynı olmadığı vurgulandı.</td></tr>
+    <tr><td>Sohbetlere yazılan bilginin “başka birine yanıt olarak dönebileceği”; yerel modellerin “güvenli” olduğu (Seminer)</td><td>Durumun araca ve ayarlara bağlı olduğu, yerel modellerin de riskleri olduğu biçiminde aktarıldı.</td></tr>
+    <tr><td>Deepfake'leri göz kırpma gibi görsel ipuçlarıyla tanıma (Seminer)</td><td>Görsel ipuçlarının giderek güvenilmez hâle gelebileceği belirtildi; mantık kontrolü ve kaynağa başvurma öne çıkarıldı.</td></tr>
+    <tr><td>Cahit Arf'ın konferansı için farklı yıllar (Seminer: 1959; EPUB: 1958)</td><td>Matematik kitabındaki bilgiye göre konferansın 1958–1959 öğretim yılında verildiği ve 1959'da yayımlandığı yazıldı.</td></tr>
+    <tr><td>Bugünkü sistemlerde “bilinç ve duygu bulunmamaktadır” gibi kesin ifadeler (EPUB)</td><td>Bilimsel kanıt olmadığı, ancak konunun tartışmalı olduğu biçiminde aktarıldı.</td></tr>
+  </tbody>
+</table></div>
+
+<h2 id="ileri">Daha fazlasını merak edenler için</h2>
+<p>Yukarıdaki web kaynaklarından TensorFlow Playground, Transformer Explainer ve Elements of AI, konuyu ileri düzeyde keşfetmek isteyenler için önerilmiştir. Bu sayfaların çoğu İngilizcedir; öğretmen eşliğinde kullanılması önerilir.</p>
+
+<nav id="pager"></nav>
+</article>
+</main>
+</div>
+<footer id="site-footer"></footer>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/search-index.js"></script>
+<script src="assets/js/site.js"></script>
+<script>
+(function () {
+  var YZ = window.YZ, esc = YZ.esc, usage = YZ.SOURCE_USAGE || {};
+  function pageTitle(file) { var all = YZ.PAGES.concat([YZ.TEACHER]); for (var i = 0; i < all.length; i++) if (all[i].file === file) return all[i].short; return file; }
+  function item(id, s) {
+    var used = (usage[id] || []).map(function (f) { return '<a href="' + f + '">' + esc(pageTitle(f)) + "</a>"; }).join(", ");
+    var title = s.tur === "web"
+      ? '<a href="' + esc(s.url) + '" target="_blank" rel="noopener">' + esc(s.baslik) + '<span class="sr-only"> (yeni sekmede açılır)</span></a>'
+      : "<strong>" + esc(s.baslik) + "</strong>";
+    return '<li id="k-' + id + '">' + esc(s.kurum) + (s.yazar ? " (" + esc(s.yazar) + ")" : "") + " – " + title +
+      '<span class="meta">Yayın yılı: ' + esc(s.yil) +
+      (s.tur === "web" ? " · Erişim tarihi: " + esc(YZ.ACCESS) + ' · <span style="word-break:break-all">' + esc(s.url) + "</span>" : " · İnternette açık adresi yok (kullanıcının verdiği dosya)") + "</span>" +
+      '<span class="meta">Kullanıldığı konu: ' + esc(s.konu) + "</span>" +
+      (used ? '<span class="meta">Kullanıldığı sayfalar: ' + used + "</span>" : "") +
+      (s.not ? '<span class="meta">Not: ' + esc(s.not) + "</span>" : "") + "</li>";
+  }
+  var dosya = [], web = [];
+  Object.keys(YZ.SOURCES).forEach(function (id) { (YZ.SOURCES[id].tur === "web" ? web : dosya).push(item(id, YZ.SOURCES[id])); });
+  document.getElementById("list-dosya").innerHTML = dosya.join("");
+  document.getElementById("list-web").innerHTML = web.join("");
+  if (location.hash) { var t = document.getElementById(location.hash.slice(1)); if (t) { t.scrollIntoView(); t.classList.add("flash"); } }
+})();
+</script>
+</body>
+</html>

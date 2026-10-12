@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Yapay zekâ atölyesi · Yapay Zekâyı Keşfet</title>
+<meta name="description" content="Tarayıcıda çalışan simülasyonlar ve oyunlar: Bir modeli eğit, mini sinir ağı, dengeli veri deneyi, yapay zekâ dedektifi ve sıradaki kelime oyunu.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@500;600;700&family=Noto+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/site.css">
+<script>try{var t=localStorage.getItem("yz-tema");if(t)document.documentElement.setAttribute("data-theme",JSON.parse(t));if(JSON.parse(localStorage.getItem("yz-sunum")))document.documentElement.classList.add("present-root")}catch(e){}</script>
+</head>
+<body data-page="atolye">
+<a class="skip" href="#icerik">İçeriğe geç</a>
+<header id="site-header"></header>
+<div class="layout">
+<nav id="sidebar"></nav>
+<main id="icerik" tabindex="-1">
+<article class="content wide">
+
+<p class="eyebrow">Uygula ve keşfet</p>
+<h1>Yapay zekâ atölyesi</h1>
+<p class="hook">Okumak bir şey, denemek başka bir şey. Bir modeli kendin eğit, bir sinir ağının ağırlıklarıyla oyna, verinin dengesini boz ve sonucun nasıl değiştiğini gör.</p>
+
+<section class="box" aria-labelledby="once-oku">
+  <h2 id="once-oku" class="box-label">Başlamadan önce</h2>
+  <p>Bu sayfadaki etkinliklerin hiçbiri gerçek bir yapay zekâ servisine bağlanmaz ve hiçbir bilgin dışarı gönderilmez. Her şey tarayıcının içinde çalışır. Simülasyonlar gerçek ve tutarlı hesaplar yapar; aynı ayarlarla her zaman aynı sonucu verir (yalnızca “Olasılığa göre seçtir” düğmesi bilerek rastgele seçim yapar). Yine de bunlar gerçek sistemlerin <strong>öğretim amaçlı, çok basitleştirilmiş</strong> modelleridir. Her etkinliğin altındaki “Bu simülasyonda neler basitleştirildi?” bölümünü okumayı unutma.</p>
+</section>
+
+<div class="table-wrap">
+<table>
+  <thead><tr><th>Etkinlik</th><th>Ne öğretir?</th><th>Yaklaşık süre</th><th>İlgili konu</th></tr></thead>
+  <tbody>
+    <tr><td><a href="#sim-egit">Bir modeli eğit</a></td><td>Etiketli örnek, eğitim, test; örnek çeşitliliğinin sonuca etkisi</td><td>10–15 dk</td><td><a href="nasil-ogrenir.html">Nasıl öğrenir?</a></td></tr>
+    <tr><td><a href="#sim-ag">Mini sinir ağı</a></td><td>Girdi, ağırlık, eşik, gizli katman, çıktı hesabı</td><td>10–15 dk</td><td><a href="sinir-aglari.html">Yapay sinir ağları</a></td></tr>
+    <tr><td><a href="#sim-denge">Dengeli veri deneyi</a></td><td>Dengesiz verinin bazı sınıflarda başarıyı düşürmesi; genel yüzdenin yanıltıcılığı</td><td>10 dk</td><td><a href="onyargi.html">Önyargı ve adalet</a></td></tr>
+    <tr><td><a href="#sim-dedektif">Yapay zekâ dedektifi</a></td><td>Yanlış bilgi, gizlilik riski, önyargı ve doğrulanması gereken iddiaları ayırt etme</td><td>10–15 dk</td><td><a href="hatalar.html">Neden hata yapar?</a>, <a href="gizlilik.html">Gizlilik</a></td></tr>
+    <tr><td><a href="#sim-kelime">Sıradaki kelime</a></td><td>Dil modellerinin olasılıklarla adım adım metin üretmesi</td><td>5 dk</td><td><a href="uretken-yz.html">Üretken yapay zekâ</a></td></tr>
+  </tbody>
+</table>
+</div>
+
+<section class="sim" data-widget="shape-trainer" aria-label="Bir modeli eğit simülasyonu"></section>
+<p class="src" data-src="meb-makine,gml-ayirma"></p>
+
+<section class="sim" data-widget="mini-nn" aria-label="Mini sinir ağı simülasyonu"></section>
+<p class="src" data-src="meb-derin,gml-sinir"></p>
+
+<section class="sim" data-widget="balance-lab" aria-label="Dengeli veri deneyi"></section>
+<p class="src" data-src="gml-dengesiz,gml-dogruluk"></p>
+
+<section class="sim" data-widget="detective" aria-label="Yapay zekâ dedektifi oyunu"></section>
+<p class="src" data-src="seminer,meb-antalya"></p>
+
+<section class="sim" data-widget="next-word" aria-label="Sıradaki kelime oyunu"></section>
+<p class="src" data-src="meb-antalya,gml-llm"></p>
+
+<section class="box discuss" aria-labelledby="tartis">
+  <h2 id="tartis" class="box-label">Atölye sonrası tartışma</h2>
+  <ul>
+    <li>“Bir modeli eğit” etkinliğinde tek tip örneklerle eğitilen model hangi şekillerde yanıldı? Bunun gerçek hayattaki bir karşılığını düşünebilir misiniz?</li>
+    <li>Mini sinir ağında aynı ağ, yalnızca ağırlıklar değişince farklı kurallar hesapladı. “Öğrenme” bu durumda neyin değişmesi demektir?</li>
+    <li>Dengeli veri deneyinde genel başarı yüksek görünürken bir şekil türü neden zorlandı? Bu, insanlarla ilgili kararlar veren sistemler için neden önemlidir?</li>
+  </ul>
+</section>
+
+<nav id="pager"></nav>
+</article>
+</main>
+</div>
+<footer id="site-footer"></footer>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/search-index.js"></script>
+<script src="assets/js/site.js"></script>
+<script src="assets/js/shapelab.js"></script>
+<script src="assets/js/sims.js"></script>
+</body>
+</html>

@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Üretken yapay zekâ nasıl çalışır? · Yapay Zekâyı Keşfet</title>
+<meta name="description" content="Metin, görsel, ses ve video üreten yapay zekâ; dil modellerinin sonraki parçayı tahmin ederek metin üretmesi; akıcı ile doğru arasındaki fark.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@500;600;700&family=Noto+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/site.css">
+<script>try{var t=localStorage.getItem("yz-tema");if(t)document.documentElement.setAttribute("data-theme",JSON.parse(t));if(JSON.parse(localStorage.getItem("yz-sunum")))document.documentElement.classList.add("present-root")}catch(e){}</script>
+</head>
+<body data-page="uretken">
+<a class="skip" href="#icerik">İçeriğe geç</a>
+<header id="site-header"></header>
+<div class="layout">
+<nav id="sidebar"></nav>
+<main id="icerik" tabindex="-1">
+<article class="content">
+
+<p class="eyebrow">Konu 6 · İçerik üreten sistemler</p>
+<h1>Üretken yapay zekâ nasıl çalışır?</h1>
+<p class="hook">Bir sohbet botu birkaç saniyede bahar hakkında bir şiir yazıyor. Bu şiiri bir yerden mi buldu, yoksa “kendisi” mi yazdı? Peki aynı şeyi bir daha istersen neden farklı bir şiir yazıyor?</p>
+
+<section class="box learn" aria-labelledby="ogren">
+  <h2 id="ogren" class="box-label">Bu sayfada ne öğreneceksin?</h2>
+  <ul>
+    <li>Üretken yapay zekânın diğer yapay zekâ sistemlerinden farkını,</li>
+    <li>bir dil modelinin metni parça parça, olasılıklara göre nasıl ürettiğini,</li>
+    <li>bunun hazır cevapları bulup kopyalamakla aynı şey olmadığını,</li>
+    <li>akıcı ve kendinden emin bir cevabın doğru olmak zorunda olmadığını.</li>
+  </ul>
+</section>
+
+<h2 id="nedir">Üretken yapay zekâ nedir?</h2>
+<p>Pek çok yapay zekâ sistemi var olan bir şeyi <strong>tanır</strong> veya <strong>sınıflandırır</strong>: “Bu fotoğrafta kedi var”, “Bu e-posta istenmeyen”. <strong>Üretken yapay zekâ</strong> ise çok büyük veri kümelerinden öğrendiği örüntülere dayanarak <strong>yeni içerik</strong> oluşturur: metin, görsel, ses, müzik, video veya bilgisayar kodu.</p>
+<p class="src" data-src="aof-giris,unesco-uretken"></p>
+<div class="grid">
+  <div class="card"><span class="tag">Metin</span><h3>Dil modelleri</h3><p>Soru cevaplar, özetler, hikâye veya e-posta taslağı yazar, çeviri yapar. Sohbet botlarının çoğu bu modelleri kullanır.</p></div>
+  <div class="card"><span class="tag">Görsel</span><h3>Görsel üreticiler</h3><p>Bir tariften resim oluşturur. Bazı yöntemler, tamamen karışık noktalardan (gürültüden) başlayıp görüntüyü adım adım netleştirir.</p></div>
+  <div class="card"><span class="tag">Ses</span><h3>Ses ve müzik</h3><p>Metni sese çevirir, müzik üretir, birinin sesini taklit edebilir. Bu son özellik dolandırıcılıkta da kötüye kullanılabilir.</p></div>
+  <div class="card"><span class="tag">Video</span><h3>Video üreticiler</h3><p>Metinden veya resimden kısa videolar oluşturur. Gerçek gibi görünen sahte videolara “derin sahte” (deepfake) denir.</p></div>
+</div>
+<p class="src" data-src="aof-giris,seminer"></p>
+
+<h2 id="dil-modeli">Bir dil modeli metni nasıl üretir?</h2>
+<p><strong>Büyük dil modelleri</strong>, çok büyük miktarda metin üzerinde eğitilmiş sinir ağlarıdır. Temel görevleri şudur: Şimdiye kadarki metne bakarak <strong>sıradaki parçanın ne olabileceğini tahmin etmek</strong>. Bu parçalara <strong>token</strong> denir; bir token bir kelime, bir kelimenin parçası veya bir noktalama işareti olabilir.</p>
+<p class="src" data-src="gml-llm,meb-antalya"></p>
+<ol class="steps">
+  <li><strong>Metin parçalara ayrılır.</strong> Yazdığın soru tokenlara bölünür.</li>
+  <li><strong>Parçalar sayılara dönüşür.</strong> Model kelimelerle değil, her tokeni temsil eden sayılarla hesap yapar.</li>
+  <li><strong>Bağlam değerlendirilir.</strong> Model, metindeki tokenların birbiriyle ilişkisini hesaplar. Örneğin “yüz” kelimesinin “yüz yaşında” ile “havuzda yüz” ifadelerinde farklı anlamda olduğunu bağlamdan çıkarır.</li>
+  <li><strong>Olasılıklar hesaplanır.</strong> Olası her sonraki token için bir olasılık bulunur.</li>
+  <li><strong>Bir token seçilir ve eklenir.</strong> Seçilen token metne eklenir; süreç cevap bitene kadar tekrarlanır.</li>
+</ol>
+<p class="src" data-src="meb-antalya,aof-giris"></p>
+
+<section class="sim" data-widget="next-word" aria-label="Sıradaki kelime etkinliği"></section>
+
+<h2 id="kopyalamak-degil">Hazır cevabı bulup kopyalamak değil</h2>
+<p>Dil modeli, bir cevap deposunda arama yapıp hazır bir metni getirmez. Cevabı, öğrendiği örüntülere ve senin yazdığın bağlama göre adım adım <em>üretir</em>. Bu yüzden daha önce hiç yazılmamış bir cümleyi de kurabilir. Aynı nedenle, aynı soruya her seferinde biraz farklı cevaplar verebilir: Her adımda olası tokenlar arasından seçim yapılır.</p>
+<p class="src" data-src="meb-antalya,aof-giris"></p>
+<p>Bu, üretilen her şeyin tamamen özgün olduğu anlamına da gelmez. Model eğitim verisindeki metinlere veya resimlere çok benzeyen içerikler de üretebilir. Üretken yapay zekâ ile ilgili telif hakkı tartışmalarının bir nedeni budur.</p>
+<p class="src" data-src="aof-giris"></p>
+
+<details class="more">
+  <summary>Biraz daha keşfet: Sık karıştırılan kavramlar</summary>
+  <div class="more-body">
+    <ul>
+      <li><strong>Model ≠ uygulama.</strong> Dil modeli bir yapay zekâ modelidir; sohbet botu ise bu modeli kullanan bir uygulamadır. Bir uygulama farklı modelleri kullanabilir, bir model de farklı uygulamalarda yer alabilir.</li>
+      <li><strong>İnternette arama ≠ modelin kendi bilgisi.</strong> Bazı uygulamalar cevap verirken internette arama yapabilir. Modelin kendi “bilgisi” ise eğitim verisinden gelir ve belirli bir tarihe kadardır. Bu yüzden güncel olaylar hakkında yanılabilir.</li>
+      <li><strong>Bağlam penceresi ≠ kalıcı hafıza.</strong> Model, bir konuşma sırasında belli miktarda metni dikkate alabilir. Bu, seni “tanıdığı” veya her şeyi hatırladığı anlamına gelmez; bazı uygulamaların ayrı bir hafıza özelliği olabilir.</li>
+      <li><strong>Rol vermek uzman yapmaz.</strong> “Bir fen öğretmeni gibi anlat” demek cevabın üslubunu değiştirebilir ama modeli gerçekten uzman yapmaz.</li>
+    </ul>
+    <p class="src" data-src="meb-antalya"></p>
+    <p>Bir dil modelinin içinde sonraki token olasılıklarının nasıl hesaplandığını görselleştiren <a href="https://poloclub.github.io/transformer-explainer/" target="_blank" rel="noopener">Transformer Explainer<span class="sr-only"> (yeni sekmede açılır)</span></a> sayfası ileri düzeyde merak edenler için uygundur (İngilizce).</p>
+    <p class="src" data-src="transformer-explainer"></p>
+  </div>
+</details>
+
+<h2 id="akici-dogru">Akıcı olmak doğru olmak değildir</h2>
+<p>Dil modeli, cümlelerin <em>dilbilgisi ve üslup bakımından</em> nasıl göründüğünü çok iyi öğrenir. Bu yüzden yanlış bir bilgiyi bile kusursuz, kendinden emin bir dille yazabilir. Modelin gerçeğe uymayan ama inandırıcı görünen bilgi üretmesine <strong>halüsinasyon</strong> (uydurma) denir.</p>
+<p class="src" data-src="aof-giris,ibm-halusinasyon"></p>
+<p>Araştırmacılar bunun önemli bir nedenini şöyle açıklar: Zor bir sınav sorusunda emin olamayan bir öğrencinin boş bırakmak yerine tahmin yürütmesi gibi, dil modelleri de emin olmadıklarında “bilmiyorum” demek yerine makul görünen bir tahmin üretebilir. Çünkü eğitim ve değerlendirme yöntemleri çoğu zaman tahmin yürütmeyi “bilmiyorum” demekten daha çok ödüllendirir.</p>
+<p class="src" data-src="kalai"></p>
+
+<section class="box example" aria-labelledby="ornek">
+  <h2 id="ornek" class="box-label">Günlük yaşamdan bir örnek: Kendinden emin ama yanlış</h2>
+  <p>Bir öğrenci sohbet botuna “Osmanlı'nın 3. padişahı II. Kara Murat'ın Viyana'yı fethettiği yılı anlat.” diye yazıyor. Sorunun kendisi yanlış bilgilerle dolu: Osmanlı'nın üçüncü padişahı I. Murat'tır, II. Murat altıncı padişahtır ve Osmanlılar Viyana'yı kuşatmış ama fethetmemiştir. Bir model, sorudaki yanlışları düzeltmek yerine bunların üzerine akıcı bir “tarih” anlatısı kurabilir.</p>
+  <p>Bu örnek, iki şeyi gösterir: Cevabın akıcılığı doğruluğunun kanıtı değildir ve sorunun kendisini de kontrol etmek gerekir.</p>
+  <p class="src" data-src="seminer"></p>
+</section>
+
+<section class="box mistake" aria-labelledby="yanlis">
+  <h2 id="yanlis" class="box-label">Sık yapılan bir yanlış</h2>
+  <p><strong>“Sohbet botu cevabı internetten bulup getiriyor; bu yüzden doğrudur.”</strong></p>
+  <p>Dil modeli cevabı çoğunlukla öğrendiği örüntülere göre üretir; bir ansiklopediden kopyalamaz. İnternette arama yapan uygulamalar bile bulduğu sayfaları yanlış özetleyebilir veya güvenilir olmayan sayfalara dayanabilir. Kendinden emin yazılmış bir cevap da kontrol edilmelidir.</p>
+</section>
+
+<section class="box discuss" aria-labelledby="tartis">
+  <h2 id="tartis" class="box-label">Sınıfça tartışalım</h2>
+  <p>Yapay zekâ ile oluşturulmuş bir resim bir yarışmada ödül kazansa, bu ödül kime verilmeli: komutu yazan kişiye mi, aracı geliştirenlere mi, modelin eğitiminde eserleri kullanılan sanatçılara mı? Neden?</p>
+</section>
+
+<h2 id="kontrol">Kendini kontrol et</h2>
+<div class="quiz-q" data-answer="b"><fieldset>
+  <legend>1. Bir dil modeli cevabını nasıl oluşturur?</legend>
+  <label class="opt"><input type="radio" value="a"> Hazır cevaplardan oluşan bir depoda arayıp en uygun cevabı kopyalar.</label>
+  <label class="opt"><input type="radio" value="b"> Metni parça parça üretir; her adımda bağlama göre olası sonraki parçalar için olasılık hesaplar.</label>
+  <label class="opt"><input type="radio" value="c"> Bir insan gibi konuyu düşünüp anlar, sonra cevabı yazar.</label>
+  <div class="fb-data" hidden>
+    <p data-for="a">Dil modelleri bir cevap deposundan kopyalamaz; cevabı adım adım üretir.</p>
+    <p data-for="b">Dil modelinin temel işi, bağlama göre sonraki tokeni tahmin etmek ve bunu art arda tekrarlamaktır.</p>
+    <p data-for="c">Model hesaplamayla çalışır; insan gibi anlama ve düşünme yaptığına dair bir kanıt yoktur.</p>
+  </div>
+</fieldset></div>
+
+<div class="quiz-q" data-answer="c"><fieldset>
+  <legend>2. Bir sohbet botu çok akıcı ve kendinden emin bir cevap verdi. Ne yapmalısın?</legend>
+  <label class="opt"><input type="radio" value="a"> Akıcı olduğu için doğru kabul etmeliyim.</label>
+  <label class="opt"><input type="radio" value="b"> Kısa cevaplar daha doğru olduğu için kısaltmasını istemeliyim.</label>
+  <label class="opt"><input type="radio" value="c"> Önemli bilgileri güvenilir bir kaynaktan kontrol etmeliyim.</label>
+  <div class="fb-data" hidden>
+    <p data-for="a">Akıcılık, cevabın doğruluğunu göstermez. Modeller yanlış bilgiyi de akıcı yazabilir.</p>
+    <p data-for="b">Kısalık doğruluğu artırmaz.</p>
+    <p data-for="c">Özellikle tarih, sayı, isim ve kaynak içeren bilgileri ders kitabı veya güvenilir kurumların sayfaları gibi kaynaklardan doğrulamak gerekir.</p>
+  </div>
+</fieldset></div>
+
+<div class="quiz-q" data-answer="a"><fieldset>
+  <legend>3. Aynı soruyu iki kez sorduğunda farklı cevaplar alman neyi gösterir?</legend>
+  <label class="opt"><input type="radio" value="a"> Model her adımda olası seçenekler arasından seçim yapar; seçimler farklı olabilir.</label>
+  <label class="opt"><input type="radio" value="b"> Model bozulmuştur.</label>
+  <label class="opt"><input type="radio" value="c"> İlk cevap kesinlikle yanlıştır.</label>
+  <div class="fb-data" hidden>
+    <p data-for="a">Olasılıklara göre seçim yapıldığı için aynı başlangıç farklı cevaplara dönüşebilir. Bu, cevapların doğruluğu hakkında tek başına bilgi vermez.</p>
+    <p data-for="b">Bu durum, üretken modellerin olağan bir özelliğidir.</p>
+    <p data-for="c">Farklı cevaplar, hangisinin doğru olduğunu söylemez; ikisi de doğru, ikisi de yanlış olabilir.</p>
+  </div>
+</fieldset></div>
+
+<section class="box remember" aria-labelledby="akilda">
+  <h2 id="akilda" class="box-label">Aklında kalsın</h2>
+  <ol>
+    <li>Üretken yapay zekâ, öğrendiği örüntülere dayanarak yeni metin, görsel, ses veya video üretir.</li>
+    <li>Dil modelleri metni token token, her adımda bağlama göre olasılık hesaplayarak üretir; hazır cevap kopyalamaz.</li>
+    <li>Akıcı ve kendinden emin bir cevap doğru olmak zorunda değildir; önemli bilgiler kontrol edilmelidir.</li>
+  </ol>
+</section>
+
+<div id="complete-row"></div>
+<nav id="pager"></nav>
+</article>
+</main>
+</div>
+<footer id="site-footer"></footer>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/search-index.js"></script>
+<script src="assets/js/site.js"></script>
+<script src="assets/js/shapelab.js"></script>
+<script src="assets/js/sims.js"></script>
+</body>
+</html>

@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>İyi bir soru veya komut nasıl yazılır? · Yapay Zekâyı Keşfet</title>
+<meta name="description" content="Amaç, bağlam, istenen çıktı ve sınırlar ile komut yazma yöntemi; belirsiz ve geliştirilmiş komutların karşılaştırması.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@500;600;700&family=Noto+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/site.css">
+<script>try{var t=localStorage.getItem("yz-tema");if(t)document.documentElement.setAttribute("data-theme",JSON.parse(t));if(JSON.parse(localStorage.getItem("yz-sunum")))document.documentElement.classList.add("present-root")}catch(e){}</script>
+</head>
+<body data-page="komut">
+<a class="skip" href="#icerik">İçeriğe geç</a>
+<header id="site-header"></header>
+<div class="layout">
+<nav id="sidebar"></nav>
+<main id="icerik" tabindex="-1">
+<article class="content">
+
+<p class="eyebrow">Konu 11 · Etkili iletişim</p>
+<h1>İyi bir soru veya komut nasıl yazılır?</h1>
+<p class="hook">Yapay zekâya “Bana bunu anlat.” dediğinde, neyi, kime, ne kadar uzun ve hangi biçimde anlatacağını nereden bilsin?</p>
+
+<section class="box learn" aria-labelledby="ogren">
+  <h2 id="ogren" class="box-label">Bu sayfada ne öğreneceksin?</h2>
+  <ul>
+    <li>Komutun (istemin) yalnızca bir soru olmadığını,</li>
+    <li>amaç, bağlam, istenen çıktı ve sınırlar üzerinden komut yazmayı,</li>
+    <li>belirsiz bir komutu adım adım geliştirmeyi,</li>
+    <li>iyi bir komutun bile doğru cevabı garanti etmediğini.</li>
+  </ul>
+</section>
+
+<h2 id="komut-nedir">Komut nedir?</h2>
+<p>Yapay zekâ aracına yazdığın metne <strong>komut</strong> veya <strong>istem</strong> (İngilizcede “prompt”) denir. Komut yalnızca soru sormak değildir; görevi, gerekli bilgileri, dikkat edilecek kuralları ve cevabın nasıl görünmesini istediğini de içerebilir.</p>
+<p class="src" data-src="meb-antalya"></p>
+<p>Komut belirsizse model ne istediğini tahmin etmek zorunda kalır. Belirsizlik üç biçimde ortaya çıkabilir:</p>
+<ul>
+  <li><strong>Bağlam eksikliği:</strong> “Bunu düzelt” derken neyin yanlış olduğunu söylememek.</li>
+  <li><strong>Anlam belirsizliği:</strong> Birden çok anlama gelen kelimeler: “yüz” sayı mı, surat mı, yüzmek mi?</li>
+  <li><strong>Hedef belirsizliği:</strong> Bilgi mi, özet mi, alıştırma mı, fikir mi istediğini belirtmemek.</li>
+</ul>
+<p class="src" data-src="seminer"></p>
+
+<h2 id="dort-parca">Dört parçalı yöntem</h2>
+<p>İyi bir komut yazmak için şu dört soruyu kendine sorabilirsin:</p>
+<div class="grid two">
+  <div class="card"><span class="tag">1</span><h3>Amaç</h3><p>Ne istiyorsun ve neden? <em>“Fotosentezi anlamak istiyorum; yarın sınıfta kısaca anlatacağım.”</em></p></div>
+  <div class="card"><span class="tag">2</span><h3>Bağlam</h3><p>Sen kimsin, konu hakkında ne biliyorsun, cevap kim için? <em>“7. sınıf öğrencisiyim; bitkilerin ışığa ihtiyaç duyduğunu biliyorum.”</em></p></div>
+  <div class="card"><span class="tag">3</span><h3>İstenen çıktı</h3><p>Cevap nasıl olsun? Uzunluk, biçim, örnek, soru… <em>“5–6 cümlelik sade bir açıklama ve sonunda 2 soru.”</em></p></div>
+  <div class="card"><span class="tag">4</span><h3>Sınırlar</h3><p>Nelere dikkat etmeli, neyi istemiyorsun? <em>“Emin olmadığın bilgileri belirt, kaynak uydurma.”</em></p></div>
+</div>
+<p class="src" data-src="meb-antalya"></p>
+
+<h2 id="karsilastirma">Belirsiz ve geliştirilmiş komut</h2>
+<div class="compare">
+  <div class="weak">
+    <h3>Belirsiz komut</h3>
+    <p class="prompt-sample">Fotosentezi anlat.</p>
+    <p><strong>Olası sorunlar:</strong> Cevap çok uzun ya da çok teknik olabilir; hangi düzeyde, ne amaçla anlatılacağı belli değil; istediğin biçime uymayabilir.</p>
+  </div>
+  <div class="strong">
+    <h3>Geliştirilmiş komut</h3>
+    <p class="prompt-sample">Fotosentezi anlamak istiyorum; yarın sınıfta kısaca anlatacağım. 7. sınıf öğrencisiyim. Bitkilerin güneş ışığına ihtiyaç duyduğunu biliyorum ama nasıl besin ürettiklerini anlamadım. Günlük yaşamdan bir benzetmeyle 5–6 cümlelik sade bir açıklama yaz. Sonunda kendimi sınamam için 2 soru sor. Emin olmadığın bir şey varsa belirt.</p>
+    <p><strong>Neden daha iyi:</strong> Amaç, düzey, bilinenler, istenen uzunluk ve biçim belli.</p>
+  </div>
+</div>
+<p class="src" data-src="meb-antalya,seminer"></p>
+
+<section class="sim" data-widget="prompt-builder" aria-label="Komut kurucu"></section>
+
+<h2 id="iyilestir">Konuşmayı sürdür: Adım adım iyileştir</h2>
+<p>İlk cevap çoğu zaman son cevap değildir. Bir heykeltıraşın taşı yavaş yavaş yontması gibi, kısa ek komutlarla cevabı ihtiyacına yaklaştırabilirsin:</p>
+<ul>
+  <li>“Daha basit anlat.” / “Bir örnek daha ver.”</li>
+  <li>“Bunu adım adım açıkla.” (Özellikle matematik ve mantık sorularında hataları görmeyi kolaylaştırır.)</li>
+  <li>“Bu bilgiyi nereden kontrol edebilirim?”</li>
+  <li>“Bana cevabı söyleme, ipucu ver.” (Kendin çözmek istediğinde.)</li>
+</ul>
+<p class="src" data-src="seminer,meb-antalya"></p>
+
+<section class="box example" aria-labelledby="ornek">
+  <h2 id="ornek" class="box-label">Günlük yaşamdan bir örnek: “Bunu düzelt”</h2>
+  <p>Ali, yazdığı paragrafı yapıştırıp yalnızca “Bunu düzelt.” yazıyor. Yapay zekâ paragrafı baştan yazıyor; Ali'nin kendi cümleleri kayboluyor ve yazım hatalarının hangileri olduğunu öğrenemiyor.</p>
+  <p>Ali komutunu şöyle değiştiriyor: <em>“Bu paragraftaki yazım ve noktalama hatalarını listele. Cümlelerimi değiştirme; her hatanın neden yanlış olduğunu kısaca açıkla.”</em> Bu kez hem hatalarını görüyor hem de neden yanlış olduklarını öğreniyor.</p>
+  <p class="src" data-src="seminer"></p>
+</section>
+
+<h2 id="garanti-degil">İyi komut doğru cevabı garanti etmez</h2>
+<p>Açık ve bağlam içeren bir komut, daha kullanışlı bir cevap alma olasılığını artırır. Ancak model yine yanlış bilgi üretebilir, kaynak uydurabilir veya bir şeyi eksik bırakabilir. Bir rol vermek (“bir fen öğretmeni gibi anlat”) cevabın üslubunu değiştirebilir ama modeli gerçekten uzman yapmaz. Bu yüzden komutun ne kadar iyi olursa olsun, cevabı kontrol etmeye devam et.</p>
+<p class="src" data-src="meb-antalya"></p>
+
+<details class="more">
+  <summary>Biraz daha keşfet: Komutuna ne yazmamalısın?</summary>
+  <div class="more-body">
+    <ul>
+      <li><strong>Kişisel bilgiler:</strong> Adın, adresin, telefonun, şifren, okul numaran veya başkalarının bilgileri. Komutun kalitesi bu bilgilere bağlı değildir.</li>
+      <li><strong>Başkasına zarar verecek istekler:</strong> Birini kandırmak, kötülemek veya taklit etmek için içerik üretmek.</li>
+      <li><strong>Okul kurallarına aykırı istekler:</strong> Yapay zekâ kullanımına izin verilmeyen bir sınav veya ödev için cevap istemek.</li>
+    </ul>
+    <p class="src" data-src="meb-antalya,seminer"></p>
+    <p>Komut yazmak, düşünceni açık ifade etme becerisidir. Ne istediğini net söyleyebilmek, yalnızca yapay zekâyla değil, insanlarla iletişimde de işine yarar.</p>
+  </div>
+</details>
+
+<section class="box mistake" aria-labelledby="yanlis">
+  <h2 id="yanlis" class="box-label">Sık yapılan bir yanlış</h2>
+  <p><strong>“Komutu ne kadar uzun yazarsam cevap o kadar doğru olur.”</strong></p>
+  <p>Önemli olan uzunluk değil, açıklıktır. Gereksiz ayrıntılarla dolu, çelişkili bir komut da kötü sonuç verebilir. Üstelik en iyi komut bile doğru cevabı garanti etmez; komut, cevabı kontrol etme sorumluluğunu ortadan kaldırmaz.</p>
+</section>
+
+<section class="box discuss" aria-labelledby="tartis">
+  <h2 id="tartis" class="box-label">Sınıfça tartışalım</h2>
+  <p>Bir arkadaşına yol tarif ederken veya ödev hakkında soru sorarken ne kadar açık konuşuyoruz? İyi bir yapay zekâ komutu ile bir insana iyi soru sormak arasında hangi benzerlikler ve farklar var?</p>
+</section>
+
+<h2 id="kontrol">Kendini kontrol et</h2>
+<div class="quiz-q" data-answer="c"><fieldset>
+  <legend>1. Hangisi en iyi geliştirilmiş komuttur?</legend>
+  <label class="opt"><input type="radio" value="a"> Volkan.</label>
+  <label class="opt"><input type="radio" value="b"> Volkanlar hakkında her şeyi yaz.</label>
+  <label class="opt"><input type="radio" value="c"> 6. sınıf öğrencisiyim. Volkanların nasıl oluştuğunu anlamak istiyorum. Bir benzetmeyle 5 cümlede anlat ve sonunda bana 1 soru sor.</label>
+  <div class="fb-data" hidden>
+    <p data-for="a">Tek kelimelik komut çok belirsizdir; model neyi istediğini tahmin etmek zorunda kalır.</p>
+    <p data-for="b">“Her şey” sınırsızdır; cevap çok uzun ve dağınık olabilir.</p>
+    <p data-for="c">Bağlam (6. sınıf), amaç (oluşumu anlamak), istenen çıktı (benzetme, 5 cümle, 1 soru) belli.</p>
+  </div>
+</fieldset></div>
+
+<div class="quiz-q" data-answer="b"><fieldset>
+  <legend>2. Komutun dört parçası nelerdir?</legend>
+  <label class="opt"><input type="radio" value="a"> Başlık, giriş, gelişme, sonuç</label>
+  <label class="opt"><input type="radio" value="b"> Amaç, bağlam, istenen çıktı, sınırlar</label>
+  <label class="opt"><input type="radio" value="c"> Ad, soyad, okul, sınıf</label>
+  <div class="fb-data" hidden>
+    <p data-for="a">Bunlar bir yazının bölümleridir, komutun parçaları değil.</p>
+    <p data-for="b">Bu dört parça, ne istediğini ve nasıl istediğini açıkça anlatmanı sağlar.</p>
+    <p data-for="c">Bunlar kişisel bilgilerdir ve komutta olmamalıdır.</p>
+  </div>
+</fieldset></div>
+
+<div class="quiz-q" data-answer="a"><fieldset>
+  <legend>3. Çok iyi bir komut yazdın ve akıcı bir cevap aldın. Şimdi ne yapmalısın?</legend>
+  <label class="opt"><input type="radio" value="a"> Önemli bilgileri yine güvenilir bir kaynaktan kontrol etmeliyim.</label>
+  <label class="opt"><input type="radio" value="b"> Komutum iyi olduğu için cevap kesinlikle doğrudur.</label>
+  <label class="opt"><input type="radio" value="c"> Cevabı hiç okumadan kopyalayabilirim.</label>
+  <div class="fb-data" hidden>
+    <p data-for="a">İyi komut daha uygun bir cevap alma olasılığını artırır ama doğruluğu garanti etmez.</p>
+    <p data-for="b">Model, iyi bir komuta da yanlış bilgi içeren bir cevap verebilir.</p>
+    <p data-for="c">Okumadan ve anlamadan kullanmak hem öğrenmeyi engeller hem de hataları gözden kaçırır.</p>
+  </div>
+</fieldset></div>
+
+<section class="box remember" aria-labelledby="akilda">
+  <h2 id="akilda" class="box-label">Aklında kalsın</h2>
+  <ol>
+    <li>İyi bir komut amacı, bağlamı, istenen çıktıyı ve sınırları açıkça söyler.</li>
+    <li>İlk cevabı ek komutlarla adım adım iyileştirebilirsin; kişisel bilgiye hiç gerek yoktur.</li>
+    <li>İyi komut daha kullanışlı bir cevap alma olasılığını artırır ama doğru cevabı garanti etmez.</li>
+  </ol>
+</section>
+
+<div id="complete-row"></div>
+<nav id="pager"></nav>
+</article>
+</main>
+</div>
+<footer id="site-footer"></footer>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/search-index.js"></script>
+<script src="assets/js/site.js"></script>
+<script src="assets/js/shapelab.js"></script>
+<script src="assets/js/sims.js"></script>
+</body>
+</html>

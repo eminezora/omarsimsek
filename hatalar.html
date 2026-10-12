@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Yapay zekâ neden hata yapar? · Yapay Zekâyı Keşfet</title>
+<meta name="description" content="Eksik veya dengesiz veri, belirsiz sorular, yeni durumlar ve uydurma bilgiler; bir yapay zekâ cevabını birlikte kontrol etme etkinliği.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@500;600;700&family=Noto+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/site.css">
+<script>try{var t=localStorage.getItem("yz-tema");if(t)document.documentElement.setAttribute("data-theme",JSON.parse(t));if(JSON.parse(localStorage.getItem("yz-sunum")))document.documentElement.classList.add("present-root")}catch(e){}</script>
+</head>
+<body data-page="hatalar">
+<a class="skip" href="#icerik">İçeriğe geç</a>
+<header id="site-header"></header>
+<div class="layout">
+<nav id="sidebar"></nav>
+<main id="icerik" tabindex="-1">
+<article class="content">
+
+<p class="eyebrow">Konu 7 · Sınırlar</p>
+<h1>Yapay zekâ neden hata yapar?</h1>
+<p class="hook">Hesap makinesi 2 + 2 için her zaman 4 der. Yapay zekâ ise bazen çok kendinden emin bir şekilde yanlış söyler. Neden? Ve yanlışı nasıl yakalarız?</p>
+
+<section class="box learn" aria-labelledby="ogren">
+  <h2 id="ogren" class="box-label">Bu sayfada ne öğreneceksin?</h2>
+  <ul>
+    <li>Yapay zekâ hatalarının başlıca kaynaklarını,</li>
+    <li>belirsiz veya yanlış bilgiye dayanan soruların cevabı nasıl etkilediğini,</li>
+    <li>dil modellerinin neden bilgi uydurabildiğini,</li>
+    <li>bir yapay zekâ cevabını adım adım nasıl kontrol edeceğini.</li>
+  </ul>
+</section>
+
+<h2 id="neden">Hata yapmak bir “arıza” mı?</h2>
+<p>Yapay zekâ sistemlerinin çoğu kesin kurallarla değil, örneklerden öğrenilmiş örüntülerle tahmin yürütür. Tahmin, doğası gereği yanılabilir. Bu yüzden iyi bir yapay zekâ sistemi bile zaman zaman hata yapar. Önemli olan, hangi durumlarda hata yapmaya daha yatkın olduğunu bilmek ve cevapları buna göre kontrol etmektir.</p>
+<p class="src" data-src="aof-giris,aof-matematik"></p>
+
+<h2 id="kaynaklar">Hataların başlıca kaynakları</h2>
+<div class="grid two">
+  <div class="card"><span class="tag">Veri</span><h3>Eksik veya dengesiz veri</h3><p>Model, eğitim verisinde az bulunan durumlarda daha çok yanılır. Yalnızca gündüz fotoğraflarıyla eğitilen bir model gece fotoğraflarında zorlanır.</p></div>
+  <div class="card"><span class="tag">Soru</span><h3>Belirsiz soru</h3><p>“Bunu düzelt” veya “Yüz hakkında bilgi ver” gibi sorularda model neyin istendiğini tahmin etmek zorunda kalır. “Yüz” bir sayı mı, surat mı, yüzmek mi?</p></div>
+  <div class="card"><span class="tag">Durum</span><h3>Yeni durumlar</h3><p>Eğitimdekilere benzemeyen bir girdiyle karşılaşan model, yine de bir cevap üretir; ama bu cevap güvenilir olmayabilir.</p></div>
+  <div class="card"><span class="tag">Uydurma</span><h3>Uydurma bilgi</h3><p>Dil modelleri var olmayan kitaplar, makaleler, internet adresleri veya olaylar üretebilir.</p></div>
+  <div class="card"><span class="tag">Zaman</span><h3>Eski bilgi</h3><p>Modelin bilgisi eğitim verisinin toplandığı tarihe kadardır. Sonrasında olanları bilmeyebilir veya eski bilgiyi güncelmiş gibi sunabilir.</p></div>
+  <div class="card"><span class="tag">Öncül</span><h3>Yanlış bilgiye dayanan soru</h3><p>Sorunun içinde yanlış bir bilgi varsa model bunu düzeltmek yerine üzerine cevap kurabilir.</p></div>
+</div>
+<p class="src" data-src="aof-giris,seminer,meb-antalya"></p>
+
+<h2 id="uydurma">Neden “bilmiyorum” demek yerine uydurur?</h2>
+<p>Bir dil modeli, metnin devamında hangi parçanın gelmesinin olası olduğunu hesaplar. Yeterli bilgi olmadığında bile en olası görünen parçayı seçmeye devam eder. Ortaya dilbilgisi bakımından kusursuz, ama gerçekle bağı olmayan bir metin çıkabilir.</p>
+<p class="src" data-src="seminer,gml-llm"></p>
+<p>2025'te yayımlanan bir araştırma, bunu sınavda tahmin yürüten öğrenciye benzetir: Modeller eğitilirken ve değerlendirilirken çoğu zaman “emin değilim” demek yerine tahmin yürütmek daha çok ödüllendirilir. Bu yüzden modeller belirsizliği kabul etmek yerine inandırıcı ama yanlış cevaplar verebilir. Araştırmacılar bu sorunu azaltmak için değerlendirme yöntemlerinin değiştirilmesini önermektedir.</p>
+<p class="src" data-src="kalai"></p>
+
+<section class="box example" aria-labelledby="ornek">
+  <h2 id="ornek" class="box-label">Günlük yaşamdan bir örnek: Ödevdeki uydurma kaynak</h2>
+  <p>Bir öğrenci kuşların göçü hakkındaki ödevi için sohbet botundan kaynak istiyor. Bot yazar adı, yıl, yayınevi ve sayfa numarası içeren düzgün bir kaynak listesi veriyor. Öğrenci kütüphane kataloğunda arayınca kitapların bir kısmının hiç var olmadığını görüyor. Kaynaklar, gerçek kaynakların <em>biçimine</em> benzetilerek üretilmiş.</p>
+  <p>Ders: Yapay zekânın verdiği her kaynağı açıp kontrol et. Bulamadığın kaynağı kullanma.</p>
+  <p class="src" data-src="seminer,meb-antalya"></p>
+</section>
+
+<section class="sim" aria-labelledby="birlikte">
+  <h2 id="birlikte">Etkinlik: Bir cevabı birlikte kontrol edelim</h2>
+  <p>Bir öğrenci sohbet botuna “Türkiye'nin en yüksek dağı hakkında bilgi ver.” diye sormuş. Aşağıda, öğretim amacıyla hazırlanmış örnek bir cevap var. Cevabı cümle cümle incele ve her cümle için bir karar ver.</p>
+  <div data-widget="sorter">
+<script type="application/json">
+{"choices":["Doğru görünüyor","Yanlış","Kontrol edilmeli"],
+"items":[
+{"q":"“Türkiye'nin en yüksek dağı Ağrı Dağı'dır.”","a":0,"fb":"Bu bilgi ders kitapları ve atlaslarla uyumludur. Yine de bir ödevde kullanırken kaynağa bakmak iyi bir alışkanlıktır."},
+{"q":"“Ağrı Dağı'nın yüksekliği 5.137 metredir.”","a":2,"fb":"Bu değer kaynaklarda genellikle 5.137 m olarak geçer; ancak farklı ölçümlerde farklı sayılar da görülebilir. Sayıları her zaman güvenilir bir kaynakla karşılaştır."},
+{"q":"“Ağrı Dağı, Ege Bölgesi'nde yer alır.”","a":1,"fb":"Ağrı Dağı, Doğu Anadolu Bölgesi'ndedir. Akıcı bir cümle içinde bile açık bir yanlış bulunabilir."},
+{"q":"“Zirvede yaz aylarında sıcaklık 40 °C'ye ulaşır.”","a":1,"fb":"Yükseldikçe hava soğur; 5.000 metreyi aşan bir zirvede böyle bir sıcaklık beklenmez. Mantık kontrolü de bir doğrulama yoludur."},
+{"q":"“Bu bilgiler ‘Türkiye Zirveler Atlası (2016), s. 112’ kaynağından alınmıştır.”","a":2,"fb":"Böyle bir kaynağın gerçekten var olup olmadığını bilmiyoruz. Kütüphane kataloğunda veya güvenilir bir arama aracında aramadan kullanma. Bulamazsan uydurma kabul et."},
+{"q":"Başka bir soru: “Bir sınıfta 32 öğrenci var. Öğrencilerin dörtte biri gözlüklü, gözlüklülerin yarısı kız. Gözlüklü kaç erkek öğrenci var?” Botun cevabı: “16”","a":1,"fb":"32'nin dörtte biri 8 eder; 8'in yarısı 4 kızdır, geriye 4 erkek kalır. Doğru cevap 4'tür. Matematik sorularında çözümü adım adım istemek ve kendin kontrol etmek hatayı yakalamayı kolaylaştırır."}
+]}
+</script>
+  </div>
+  <p class="note">Bu etkinlikteki “sohbet botu cevabı” gerçek bir yapay zekâdan alınmamıştır; sık görülen hata türlerini göstermek için hazırlanmıştır. Matematik sorusu, öğretmen eğitimi seminerindeki bir örnekten uyarlanmıştır.</p>
+  <p class="src" data-src="seminer"></p>
+</section>
+
+<h2 id="kontrol-listesi">Bir yapay zekâ cevabını nasıl kontrol edersin?</h2>
+<ol class="steps">
+  <li><strong>Soruna bak.</strong> Sorunda yanlış bir bilgi veya belirsiz bir kelime var mı?</li>
+  <li><strong>Mantık kontrolü yap.</strong> Cevap kendi içinde tutarlı mı? Sayılar akla yatkın mı?</li>
+  <li><strong>Önemli bilgileri ayır.</strong> İsimler, tarihler, sayılar ve alıntılar özellikle kontrol edilmelidir.</li>
+  <li><strong>Güvenilir kaynağa bak.</strong> Ders kitabı, resmî kurumların siteleri, ansiklopediler veya öğretmenin önerdiği kaynaklar.</li>
+  <li><strong>Verilen kaynakları aç.</strong> Kaynak gerçekten var mı ve gerçekten bu bilgiyi söylüyor mu?</li>
+  <li><strong>Emin değilsen sor.</strong> Öğretmenine veya bir yetişkine danış. “Bilmiyorum” veya “emin değilim” demek de doğru bir cevaptır.</li>
+</ol>
+<p class="src" data-src="meb-antalya,seminer"></p>
+
+<details class="more">
+  <summary>Biraz daha keşfet: Otomasyon yanılgısı</summary>
+  <div class="more-body">
+    <p>Bir sistem uzun süre doğru cevaplar verdiğinde insanlar onu sorgulamayı bırakabilir. Bir sistemin önerisini eleştirel biçimde değerlendirmeden kabul etme eğilimine <strong>otomasyon yanılgısı</strong> denir. Zaman baskısı olduğunda ve sistemin geçmişte başarılı olduğu durumlarda daha sık görülür. Sistemin hata yaptığı nadir anlar da genellikle bu yüzden gözden kaçar.</p>
+    <p class="src" data-src="aof-giris,gml-onyargi"></p>
+    <p>Hataları azaltmak için geliştirilen yöntemlerden biri, modelin cevap vermeden önce güvenilir belgelerden ilgili bilgileri bulması ve cevabını bunlara dayandırmasıdır (erişim destekli üretim). Bu yöntem hataları azaltabilir ama tamamen ortadan kaldırmaz.</p>
+    <p class="src" data-src="aof-giris,meb-antalya"></p>
+  </div>
+</details>
+
+<section class="box mistake" aria-labelledby="yanlis">
+  <h2 id="yanlis" class="box-label">Sık yapılan bir yanlış</h2>
+  <p><strong>“Yapay zekâ bir şeyi bilmiyorsa ‘bilmiyorum’ der.”</strong></p>
+  <p>Her zaman değil. Dil modelleri bilgilerinin sınırını her zaman fark edemez ve emin olmadıkları konularda da akıcı cevaplar üretebilir. Bazı sistemler belirsizliği belirtmeye çalışır; ama “emin olduğunu” söyleyen bir cevap da yanlış olabilir.</p>
+</section>
+
+<section class="box discuss" aria-labelledby="tartis">
+  <h2 id="tartis" class="box-label">Sınıfça tartışalım</h2>
+  <p>Bir arkadaşın, yapay zekâdan aldığı ve kontrol etmediği yanlış bir bilgiyi sınıf sunumunda kullanıyor. Bu hatadan kim sorumludur: yapay zekâ mı, onu geliştirenler mi, sunumu yapan öğrenci mi? Neden?</p>
+</section>
+
+<h2 id="kontrol">Kendini kontrol et</h2>
+<div class="quiz-q" data-answer="c"><fieldset>
+  <legend>1. Hangisi bir dil modelinin “halüsinasyonuna” örnektir?</legend>
+  <label class="opt"><input type="radio" value="a"> Modelin yavaş cevap vermesi</label>
+  <label class="opt"><input type="radio" value="b"> Modelin cevabı kısa tutması</label>
+  <label class="opt"><input type="radio" value="c"> Modelin var olmayan bir kitabı gerçekmiş gibi kaynak göstermesi</label>
+  <div class="fb-data" hidden>
+    <p data-for="a">Hız, doğrulukla ilgili değildir.</p>
+    <p data-for="b">Kısa cevap halüsinasyon değildir.</p>
+    <p data-for="c">Halüsinasyon, inandırıcı görünen ama gerçeğe uymayan bilgi üretmektir. Uydurma kaynaklar bunun sık görülen bir örneğidir.</p>
+  </div>
+</fieldset></div>
+
+<div class="quiz-q" data-answer="a"><fieldset>
+  <legend>2. “Yüz hakkında bilgi ver.” komutu neden kötü sonuç verebilir?</legend>
+  <label class="opt"><input type="radio" value="a"> Çünkü “yüz” birden fazla anlama gelebilir; model neyi kastettiğini tahmin etmek zorunda kalır.</label>
+  <label class="opt"><input type="radio" value="b"> Çünkü yapay zekâ “yüz” kelimesini bilmez.</label>
+  <label class="opt"><input type="radio" value="c"> Çünkü kısa komutlara cevap verilmez.</label>
+  <div class="fb-data" hidden>
+    <p data-for="a">Belirsiz sorular, modelin yanlış anlamı seçmesine neden olabilir. Bağlam eklemek (“insan yüzündeki kaslar hakkında…”) cevabı iyileştirir.</p>
+    <p data-for="b">Kelimeyi “bilir”; sorun, hangi anlamın kastedildiğinin belirsiz olmasıdır.</p>
+    <p data-for="c">Kısa komutlara da cevap verilir; ama belirsizlik artabilir.</p>
+  </div>
+</fieldset></div>
+
+<div class="quiz-q" data-answer="b"><fieldset>
+  <legend>3. Yapay zekâdan aldığın bir cevapta bir yıl, bir yüzde ve bir kaynak var. İlk olarak ne yapmalısın?</legend>
+  <label class="opt"><input type="radio" value="a"> Ayrıntılı olduğu için doğru kabul edip kullanmak</label>
+  <label class="opt"><input type="radio" value="b"> Yılı, yüzdeyi ve kaynağı güvenilir kaynaklardan kontrol etmek</label>
+  <label class="opt"><input type="radio" value="c"> Aynı soruyu tekrar sorup cevap değişmiyorsa kabul etmek</label>
+  <div class="fb-data" hidden>
+    <p data-for="a">Ayrıntı, doğruluğun kanıtı değildir; uydurma bilgiler de çok ayrıntılı görünebilir.</p>
+    <p data-for="b">Sayı, tarih ve kaynaklar en sık kontrol edilmesi gereken bilgilerdir.</p>
+    <p data-for="c">Model aynı yanlışı tekrar edebilir. Kontrol, modelin dışından bir kaynakla yapılmalıdır.</p>
+  </div>
+</fieldset></div>
+
+<section class="box remember" aria-labelledby="akilda">
+  <h2 id="akilda" class="box-label">Aklında kalsın</h2>
+  <ol>
+    <li>Yapay zekâ tahmin yürüttüğü için hata yapabilir; eksik veri, belirsiz soru, yeni durumlar ve eski bilgi hatayı artırır.</li>
+    <li>Dil modelleri bilmediklerini her zaman söylemez; kaynak, isim, tarih ve sayı uydurabilir.</li>
+    <li>Önemli bilgileri sorgula, mantık kontrolü yap ve modelin dışındaki güvenilir kaynaklarla doğrula.</li>
+  </ol>
+</section>
+
+<div id="complete-row"></div>
+<nav id="pager"></nav>
+</article>
+</main>
+</div>
+<footer id="site-footer"></footer>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/search-index.js"></script>
+<script src="assets/js/site.js"></script>
+<script src="assets/js/shapelab.js"></script>
+<script src="assets/js/sims.js"></script>
+</body>
+</html>

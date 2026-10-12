@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Yapay sinir ağlarının mantığı · Yapay Zekâyı Keşfet</title>
+<meta name="description" content="Girdi, bağlantı, ağırlık, katman ve çıktı kavramları; yapay sinir ağlarının nasıl öğrendiği ve beyinle farkları.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@500;600;700&family=Noto+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/site.css">
+<script>try{var t=localStorage.getItem("yz-tema");if(t)document.documentElement.setAttribute("data-theme",JSON.parse(t));if(JSON.parse(localStorage.getItem("yz-sunum")))document.documentElement.classList.add("present-root")}catch(e){}</script>
+</head>
+<body data-page="sinir">
+<a class="skip" href="#icerik">İçeriğe geç</a>
+<header id="site-header"></header>
+<div class="layout">
+<nav id="sidebar"></nav>
+<main id="icerik" tabindex="-1">
+<article class="content">
+
+<p class="eyebrow">Konu 5 · Derin öğrenmenin temeli</p>
+<h1>Yapay sinir ağlarının mantığı</h1>
+<p class="hook">Ekranda el yazısıyla yazılmış bir “7” görüyorsun. Bilgisayar için bu görüntü yalnızca sayılardan oluşan bir tablo. Bu sayılardan “7” sonucuna nasıl ulaşılır?</p>
+
+<section class="box learn" aria-labelledby="ogren">
+  <h2 id="ogren" class="box-label">Bu sayfada ne öğreneceksin?</h2>
+  <ul>
+    <li>Girdi, bağlantı, ağırlık, katman ve çıktı kavramlarını,</li>
+    <li>tek bir yapay nöronun nasıl hesap yaptığını,</li>
+    <li>bir sinir ağının ağırlıklarını ayarlayarak nasıl öğrendiğini,</li>
+    <li>yapay sinir ağlarının beyinden esinlendiğini ama beyin olmadığını ve her yapay zekânın sinir ağı kullanmadığını.</li>
+  </ul>
+</section>
+
+<h2 id="beyin-degil">Önce bir uyarı: Sinir ağı bir beyin değildir</h2>
+<p>Yapay sinir ağları adını beyindeki sinir hücrelerinden (nöronlardan) alır. 1943'te Warren McCulloch ve Walter Pitts, bir nöronun çok basitleştirilmiş matematiksel modelini önerdi. Bugünkü yapay sinir ağları bu fikirden <strong>esinlenir</strong>; ancak beynin kopyası değildir.</p>
+<p class="src" data-src="ibm-sinir,aof-giris"></p>
+<div class="compare">
+  <div><h3>Beyindeki nöron</h3><p>Canlı bir hücredir; kimyasal ve elektriksel sinyallerle çalışır, sürekli değişir, büyür, enerji tüketir. Beynin nasıl düşündüğü hâlâ tam olarak bilinmemektedir.</p></div>
+  <div><h3>Yapay nöron</h3><p>Bir sayı hesabıdır: Gelen sayıları ağırlıklarla çarpar, toplar ve sonucu bir kuraldan geçirir. Kendi başına hiçbir şey hissetmez veya anlamaz.</p></div>
+</div>
+<p class="src" data-src="aof-giris,gml-sinir"></p>
+
+<h2 id="tek-noron">Tek bir yapay nöron nasıl hesap yapar?</h2>
+<p>Bir yapay nöron üç şey yapar:</p>
+<ol class="steps">
+  <li><strong>Girdileri alır.</strong> Örneğin “kart okundu mu?” (1 = evet, 0 = hayır) ve “şifre girildi mi?”.</li>
+  <li><strong>Her girdiyi kendi ağırlığıyla çarpar ve toplar.</strong> Ağırlık, o girdinin sonuç için ne kadar önemli olduğunu belirleyen sayıdır. Negatif bir ağırlık, o girdinin sonucu azalttığı anlamına gelir.</li>
+  <li><strong>Toplamı bir kuraldan geçirir.</strong> En basit kural: Toplam eşik değerine ulaşırsa 1, ulaşmazsa 0 ver. Gerçek ağlarda genellikle sonucu yumuşak biçimde 0 ile 1 arasına yerleştiren işlevler kullanılır.</li>
+</ol>
+<p class="src" data-src="meb-derin,gml-sinir"></p>
+
+<section class="sim" data-widget="neuron" aria-label="Tek nöron etkinliği"></section>
+
+<h2 id="katmanlar">Nöronlardan ağa: katmanlar</h2>
+<p>Tek bir nöron yalnızca basit kurallar hesaplayabilir. Çok sayıda nöron katmanlar hâlinde birbirine bağlandığında çok daha karmaşık örüntüler tanınabilir. Aşağıdaki şemayı aşama aşama ilerleterek inceleyin.</p>
+
+<figure class="diagram" data-widget="stepper">
+  <svg viewBox="0 0 720 360" role="img" aria-labelledby="nn1t nn1d">
+    <title id="nn1t">Bir yapay sinir ağının katmanları</title>
+    <desc id="nn1d">Solda el yazısı rakam görüntüsünün piksellerinden gelen dört girdi, ortada üç nöronlu gizli katman, sağda “7” ve “1” olasılıklarını veren iki çıktı nöronu vardır. Her girdi her gizli nörona, her gizli nöron her çıktıya bağlıdır.</desc>
+    <g data-step="1">
+      <rect x="14" y="40" width="96" height="96" rx="8" class="svg-box"/>
+      <g fill="var(--text)">
+        <rect x="34" y="58" width="56" height="10"/><rect x="74" y="68" width="14" height="14"/><rect x="66" y="82" width="14" height="14"/><rect x="58" y="96" width="14" height="14"/><rect x="52" y="110" width="14" height="14"/>
+      </g>
+      <text x="62" y="156" text-anchor="middle" class="svg-muted" font-size="12">görüntü = sayılar</text>
+      <g font-size="12" class="svg-text">
+        <circle cx="160" cy="70" r="18" class="svg-accent" stroke-width="2"/><text x="160" y="74" text-anchor="middle">0,9</text>
+        <circle cx="160" cy="140" r="18" class="svg-accent" stroke-width="2"/><text x="160" y="144" text-anchor="middle">0,0</text>
+        <circle cx="160" cy="210" r="18" class="svg-accent" stroke-width="2"/><text x="160" y="214" text-anchor="middle">0,8</text>
+        <circle cx="160" cy="280" r="18" class="svg-accent" stroke-width="2"/><text x="160" y="284" text-anchor="middle">0,1</text>
+      </g>
+      <text x="160" y="330" text-anchor="middle" class="svg-text" font-size="14" font-weight="700">Girdi katmanı</text>
+    </g>
+    <g data-step="2" class="svg-line" stroke-width="1.5" opacity=".8">
+      <path d="M178 70L342 100M178 70L342 180M178 70L342 260M178 140L342 100M178 140L342 180M178 140L342 260M178 210L342 100M178 210L342 180M178 210L342 260M178 280L342 100M178 280L342 180M178 280L342 260"/>
+    </g>
+    <g data-step="2"><text x="258" y="40" text-anchor="middle" class="svg-text" font-size="13">her bağlantının bir ağırlığı var</text></g>
+    <g data-step="3">
+      <circle cx="362" cy="100" r="22" class="svg-primary" stroke-width="2"/><circle cx="362" cy="180" r="22" class="svg-primary" stroke-width="2"/><circle cx="362" cy="260" r="22" class="svg-primary" stroke-width="2"/>
+      <text x="362" y="330" text-anchor="middle" class="svg-text" font-size="14" font-weight="700">Gizli katman</text>
+    </g>
+    <g data-step="4">
+      <path d="M384 100L560 140M384 100L560 230M384 180L560 140M384 180L560 230M384 260L560 140M384 260L560 230" class="svg-line" stroke-width="1.5"/>
+      <circle cx="580" cy="140" r="24" class="svg-warn" stroke-width="2"/><text x="580" y="145" text-anchor="middle" class="svg-text" font-size="13" font-weight="700">%91</text>
+      <circle cx="580" cy="230" r="24" class="svg-warn" stroke-width="2"/><text x="580" y="235" text-anchor="middle" class="svg-text" font-size="13" font-weight="700">%9</text>
+      <text x="614" y="145" class="svg-text" font-size="14">“7”</text><text x="614" y="235" class="svg-text" font-size="14">“1”</text>
+      <text x="580" y="330" text-anchor="middle" class="svg-text" font-size="14" font-weight="700">Çıktı katmanı</text>
+    </g>
+    <g data-step="5">
+      <rect x="470" y="20" width="236" height="56" rx="10" class="svg-accent" stroke-width="2"/>
+      <text x="588" y="44" text-anchor="middle" class="svg-text" font-size="13">Doğru cevap “7” → hata küçük</text>
+      <text x="588" y="64" text-anchor="middle" class="svg-text" font-size="13">ağırlıklar biraz ayarlanır</text>
+    </g>
+  </svg>
+  <ol class="step-texts">
+    <li><strong>Girdi katmanı.</strong> Görüntü küçük karelere (piksellere) bölünür ve her pikselin koyuluğu bir sayıya dönüşür. Bu sayılar ağın girdileridir. Gerçek bir rakam görüntüsünde yüzlerce piksel, dolayısıyla yüzlerce girdi vardır; burada yalnızca dört tanesi gösteriliyor.</li>
+    <li><strong>Bağlantılar ve ağırlıklar.</strong> Her girdi, sonraki katmandaki nöronlara bağlanır. Her bağlantının bir ağırlığı vardır. Ağırlıklar, hangi girdinin hangi nöron için önemli olduğunu belirler.</li>
+    <li><strong>Gizli katman.</strong> Bu nöronlar girdileri ağırlıklarla çarpıp toplar ve sonucu bir sonraki katmana iletir. Bir nöron, örneğin “üstte yatay bir çizgi var mı?” gibi bir örüntüye duyarlı hâle gelebilir. Bu ara katmanlara “gizli” denir, çünkü doğrudan dışarıdan görmeyiz.</li>
+    <li><strong>Çıktı katmanı.</strong> Son katman her olası cevap için bir değer üretir. Bu değerler çoğu zaman olasılık gibi yorumlanır: “%91 ihtimalle 7, %9 ihtimalle 1”. Model en yüksek değeri cevap olarak verir. Buradaki yüzdeler örnek olarak yazılmıştır.</li>
+    <li><strong>Öğrenme.</strong> Eğitim sırasında ağın cevabı doğru cevapla karşılaştırılır. Aradaki fark (hata) hesaplanır ve tüm ağırlıklar hatayı biraz azaltacak yönde ayarlanır. Bu işlem binlerce örnekle defalarca tekrarlanır.</li>
+  </ol>
+</figure>
+<p class="src" data-src="aof-giris,gml-sinir,meb-derin"></p>
+
+<h2 id="nasil-ogrenir">Ağ nasıl öğrenir?</h2>
+<p>Eğitim başında ağırlıklar rastgele küçük sayılardır; ağ bu hâliyle anlamsız tahminler yapar. Sonra şu döngü tekrarlanır:</p>
+<ol class="steps">
+  <li>Bir eğitim örneği ağa verilir ve ağ bir tahmin üretir.</li>
+  <li>Tahmin, doğru cevapla (etiketle) karşılaştırılır ve hata hesaplanır.</li>
+  <li>Her ağırlık, hatadaki payına göre küçük bir miktar değiştirilir. Bu ayarlama işlemine <strong>geri yayılım</strong> denir; değişikliğin büyüklüğü <strong>öğrenme oranıyla</strong> belirlenir.</li>
+  <li>Tüm eğitim örnekleri bir kez kullanıldığında bir <strong>tur (epoch)</strong> tamamlanır. Ağ, hata yeterince azalana kadar birçok tur boyunca eğitilir.</li>
+</ol>
+<p class="src" data-src="meb-derin,aof-matematik"></p>
+<p>Ağırlıkları sen ayarlayarak bir ağın nasıl farklı kurallar hesapladığını görmek için atölyedeki <a href="atolye.html#sim-ag">Mini sinir ağı</a> etkinliğini dene.</p>
+
+<h2 id="derin">Derin öğrenme neden “derin”?</h2>
+<p>“Derin” kelimesi, ağda çok sayıda gizli katman olduğunu anlatır. Eski ağlarda bir iki gizli katman bulunurken bugünkü derin modellerde onlarca, hatta yüzlerce katman olabilir. Görüntü tanıyan bir ağda ilk katmanlar kenar ve renk geçişleri gibi basit örüntülere, sonraki katmanlar göz, kulak, tekerlek gibi parçalara, en üst katmanlar ise bütün nesnelere duyarlı hâle gelir.</p>
+<p class="src" data-src="aof-giris"></p>
+
+<section class="box example" aria-labelledby="ornek">
+  <h2 id="ornek" class="box-label">Günlük yaşamdan bir örnek: Telefonda el yazısı tanıma</h2>
+  <p>Telefonda parmağınla bir rakam veya harf çizdiğinde yazıya dönüşmesi, el yazısı örnekleriyle eğitilmiş bir sinir ağıyla yapılabilir. Ağ, çok sayıda kişinin farklı biçimlerde yazdığı rakamları ve doğru etiketlerini görerek eğitilir. El yazısı rakam tanıma, sinir ağlarını öğretirken sık kullanılan bir örnektir; öğretmen eğitimi sunumlarında da bu uygulama yer alır.</p>
+  <p>Sen “7”yi alışılmadık bir şekilde yazarsan ağ yanılabilir; çünkü eğitimde gördüğü örneklere benzemeyen bir girdiyle karşılaşmıştır.</p>
+  <p class="src" data-src="meb-derin"></p>
+</section>
+
+<h2 id="hepsi-degil">Her yapay zekâ sinir ağı kullanmaz</h2>
+<p>Sinir ağları bugün çok yaygın olsa da tek yöntem değildir. Karar ağaçları (bir dizi evet/hayır sorusuyla karar veren yapılar), k-en yakın komşu (yeni örneği en çok benzediği örneklere göre sınıflandıran yöntem), istatistiksel modeller, kurallara dayanan uzman sistemler ve arama algoritmaları da yapay zekâda kullanılır. Atölyedeki şekil simülasyonları da sinir ağı değil, k-en yakın komşu yöntemiyle çalışır.</p>
+<p class="src" data-src="meb-makine,aof-giris"></p>
+
+<details class="more">
+  <summary>Biraz daha keşfet: Parametre, nöron ve “kara kutu”</summary>
+  <div class="more-body">
+    <p><strong>Parametre ile nöron aynı şey değildir.</strong> Bir modelin parametreleri, eğitimde ayarlanan sayılardır (ağırlıklar ve eşik ayarları). Bir nöronun pek çok bağlantısı olduğu için parametre sayısı genellikle nöron sayısından çok daha büyüktür. Bazı sunumlarda büyük dil modellerinin “nöron sayısı” diye verilen rakamlar aslında parametre sayısıdır ve çoğu zaman şirketlerin açıklamadığı tahminlerdir. Ayrıca daha çok parametre, modelin her işte daha iyi olduğu anlamına gelmez.</p>
+    <p class="src" data-src="meb-antalya,gml-sinir"></p>
+    <p><strong>Kara kutu sorunu.</strong> Derin ağlarda milyonlarca parametre birlikte çalıştığı için bir kararın tam olarak neden verildiğini açıklamak zor olabilir. Bu duruma “kara kutu sorunu” denir. Araştırmacılar kararları daha anlaşılır kılmak için “açıklanabilir yapay zekâ” yöntemleri üzerinde çalışır.</p>
+    <p class="src" data-src="aof-giris"></p>
+    <p>Daha ileri düzeyde denemek isteyenler, tarayıcıda çalışan <a href="https://playground.tensorflow.org/" target="_blank" rel="noopener">TensorFlow Playground<span class="sr-only"> (yeni sekmede açılır)</span></a> ile katman ve nöron sayısını değiştirerek bir ağın öğrenmesini izleyebilir. Sayfa İngilizcedir.</p>
+    <p class="src" data-src="tf-playground"></p>
+  </div>
+</details>
+
+<section class="box mistake" aria-labelledby="yanlis">
+  <h2 id="yanlis" class="box-label">Sık yapılan bir yanlış</h2>
+  <p><strong>“Yapay sinir ağı, insan beyninin bilgisayardaki kopyasıdır; bu yüzden insan gibi düşünür.”</strong></p>
+  <p>Yapay sinir ağları beyinden yalnızca genel bir fikir olarak esinlenir: birbirine bağlı birimler ve bağlantıların güçlenip zayıflaması. Gerçek beynin karmaşıklığını taşımazlar, bilinçleri veya duyguları yoktur. Yaptıkları şey, sayıları ağırlıklarla çarpıp toplamaktır.</p>
+</section>
+
+<section class="box discuss" aria-labelledby="tartis">
+  <h2 id="tartis" class="box-label">Sınıfça tartışalım</h2>
+  <p>Bir sinir ağı bir fotoğrafa “kedi” diyor ama neden böyle dediğini kimse kolayca açıklayamıyor. Bu durum bir oyun uygulamasında sorun olur mu? Peki bir hastanede ya da okulda karar verirken kullanılsaydı?</p>
+</section>
+
+<h2 id="kontrol">Kendini kontrol et</h2>
+<div class="quiz-q" data-answer="a"><fieldset>
+  <legend>1. Yapay sinir ağında bir bağlantının “ağırlığı” neyi belirler?</legend>
+  <label class="opt"><input type="radio" value="a"> O girdinin sonuca ne kadar ve hangi yönde etki edeceğini</label>
+  <label class="opt"><input type="radio" value="b"> Bilgisayarın kaç kilogram olduğunu</label>
+  <label class="opt"><input type="radio" value="c"> Ağdaki katman sayısını</label>
+  <div class="fb-data" hidden>
+    <p data-for="a">Büyük pozitif ağırlık girdinin etkisini artırır, negatif ağırlık sonucu azaltır. Eğitim, bu ağırlıkları ayarlama sürecidir.</p>
+    <p data-for="b">Buradaki “ağırlık” fiziksel bir ağırlık değil, bir sayıdır.</p>
+    <p data-for="c">Katman sayısı ağın yapısıyla ilgilidir; ağırlık ise tek tek bağlantıların gücünü gösterir.</p>
+  </div>
+</fieldset></div>
+
+<div class="quiz-q" data-answer="c"><fieldset>
+  <legend>2. Yapay sinir ağları ile insan beyni arasındaki ilişki için hangisi doğrudur?</legend>
+  <label class="opt"><input type="radio" value="a"> Yapay sinir ağları beynin birebir kopyasıdır.</label>
+  <label class="opt"><input type="radio" value="b"> İkisinin hiçbir ilgisi yoktur.</label>
+  <label class="opt"><input type="radio" value="c"> Yapay sinir ağları beyinden esinlenmiş, çok basitleştirilmiş matematiksel modellerdir.</label>
+  <div class="fb-data" hidden>
+    <p data-for="a">Beyin çok daha karmaşıktır ve nasıl çalıştığı hâlâ tam bilinmemektedir.</p>
+    <p data-for="b">Fikir, beyindeki nöronlardan esinlenmiştir; bu yüzden adı “sinir ağı”dır.</p>
+    <p data-for="c">Esin kaynağı beyindir, ama bir yapay nöron yalnızca bir hesaplama birimidir.</p>
+  </div>
+</fieldset></div>
+
+<div class="quiz-q" data-answer="b"><fieldset>
+  <legend>3. “Her yapay zekâ sistemi sinir ağı kullanır.” Bu cümle doğru mu?</legend>
+  <label class="opt"><input type="radio" value="a"> Doğru; sinir ağı olmadan yapay zekâ olmaz.</label>
+  <label class="opt"><input type="radio" value="b"> Yanlış; karar ağaçları, k-en yakın komşu, kurallar ve arama gibi başka yöntemler de vardır.</label>
+  <div class="fb-data" hidden>
+    <p data-for="a">Sinir ağları yaygındır ama tek yöntem değildir.</p>
+    <p data-for="b">Yapay zekâda birçok yöntem kullanılır. Hangi yöntemin seçileceği probleme ve veriye bağlıdır.</p>
+  </div>
+</fieldset></div>
+
+<section class="box remember" aria-labelledby="akilda">
+  <h2 id="akilda" class="box-label">Aklında kalsın</h2>
+  <ol>
+    <li>Yapay nöron girdileri ağırlıklarla çarpar, toplar ve sonucu bir kuraldan geçirir; ağ, bu nöronların katmanlar hâlinde bağlanmasıyla oluşur.</li>
+    <li>Ağ, tahminini doğru cevapla karşılaştırıp ağırlıklarını adım adım ayarlayarak öğrenir.</li>
+    <li>Sinir ağları beyinden esinlenir ama beyin değildir; ayrıca her yapay zekâ sinir ağı kullanmaz.</li>
+  </ol>
+</section>
+
+<div id="complete-row"></div>
+<nav id="pager"></nav>
+</article>
+</main>
+</div>
+<footer id="site-footer"></footer>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/search-index.js"></script>
+<script src="assets/js/site.js"></script>
+<script src="assets/js/shapelab.js"></script>
+<script src="assets/js/sims.js"></script>
+</body>
+</html>

@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Yapay zekâ nasıl öğrenir? · Yapay Zekâyı Keşfet</title>
+<meta name="description" content="Veri, örnek, etiket, örüntü, model, eğitim ve tahmin kavramları; eğitim ve test ayrımı; ezberleme ile genelleme.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@500;600;700&family=Noto+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/site.css">
+<script>try{var t=localStorage.getItem("yz-tema");if(t)document.documentElement.setAttribute("data-theme",JSON.parse(t));if(JSON.parse(localStorage.getItem("yz-sunum")))document.documentElement.classList.add("present-root")}catch(e){}</script>
+</head>
+<body data-page="ogrenme">
+<a class="skip" href="#icerik">İçeriğe geç</a>
+<header id="site-header"></header>
+<div class="layout">
+<nav id="sidebar"></nav>
+<main id="icerik" tabindex="-1">
+<article class="content">
+
+<p class="eyebrow">Konu 4 · Makine öğrenmesi</p>
+<h1>Yapay zekâ nasıl öğrenir?</h1>
+<p class="hook">Hiç kedi görmemiş bir bilgisayara “kedi”yi nasıl tarif ederdin? “Sivri kulaklı, bıyıklı, dört ayaklı” desen… Kulağı katlanmış, arkası dönük ya da karanlıkta çekilmiş bir kedi ne olacak?</p>
+
+<section class="box learn" aria-labelledby="ogren">
+  <h2 id="ogren" class="box-label">Bu sayfada ne öğreneceksin?</h2>
+  <ul>
+    <li>Veri, örnek, özellik, etiket, örüntü, model, eğitim ve tahmin kavramlarını,</li>
+    <li>bir makine öğrenmesi modelinin hangi adımlarla hazırlandığını,</li>
+    <li>eğitimde kullanılan örneklerle yeni örneklerde yapılan denemenin neden ayrı tutulduğunu,</li>
+    <li>“daha çok veri her zaman daha iyi sonuç verir” düşüncesinin neden eksik olduğunu.</li>
+  </ul>
+</section>
+
+<h2 id="kural-zor">Kuralları yazmak neden zor?</h2>
+<p>İki sayıyı toplamak için kural bellidir; bilgisayara bunu öğretmeye gerek yoktur. Ama bir fotoğrafta kedi olup olmadığını söyleyen kuralları tek tek yazmak neredeyse imkânsızdır: Kediler farklı renkte, boyutta, duruşta ve ışıkta görünür. Yapay zekâ özellikle kuralların açıkça yazılamadığı, koşulların değişken olduğu durumlarda kullanılır.</p>
+<p class="src" data-src="aof-matematik"></p>
+<p><strong>Makine öğrenmesi</strong> bu soruna farklı bir yoldan yaklaşır: Sisteme kuralları vermek yerine çok sayıda örnek gösterilir. Sistem bu örneklerdeki ortak örüntüleri bulur ve daha önce görmediği yeni örnekler için tahmin üretir.</p>
+<p class="src" data-src="aof-giris"></p>
+
+<h2 id="kavramlar">Temel kavramlar</h2>
+<div class="grid">
+  <div class="card"><span class="tag">Veri</span><h3>Ham bilgi</h3><p>Sistemin öğrenmek için kullandığı metin, görsel, ses veya sayılar.</p></div>
+  <div class="card"><span class="tag">Örnek</span><h3>Tek bir kayıt</h3><p>Veri kümesindeki tek bir fotoğraf, tek bir e-posta ya da tablodaki tek bir satır.</p></div>
+  <div class="card"><span class="tag">Özellik</span><h3>Ölçülebilen nitelik</h3><p>Bir örneği betimleyen bilgi: bir e-postadaki kelimeler, bir görüntüdeki renkler ve kenarlar.</p></div>
+  <div class="card"><span class="tag">Etiket</span><h3>Doğru cevap</h3><p>Örneğin ne olduğunu söyleyen bilgi: “kedi”, “istenmeyen e-posta”, “kare”. Etiketleri çoğu zaman insanlar verir.</p></div>
+  <div class="card"><span class="tag">Örüntü</span><h3>Tekrar eden ilişki</h3><p>Örneklerde sık görülen düzen: “Bu kelimeler geçen e-postalar çoğunlukla istenmeyen e-postadır.”</p></div>
+  <div class="card"><span class="tag">Model</span><h3>Öğrenilen yapı</h3><p>Eğitim sonunda ortaya çıkan, girdiden çıktı üreten matematiksel yapı. Davranışını belirleyen sayılara <em>parametre</em> denir.</p></div>
+  <div class="card"><span class="tag">Eğitim</span><h3>Öğrenme süreci</h3><p>Modelin parametrelerinin, tahminleri doğru cevaplara yaklaşacak biçimde adım adım ayarlanması.</p></div>
+  <div class="card"><span class="tag">Tahmin</span><h3>Yeni örneğe cevap</h3><p>Eğitilmiş modelin daha önce görmediği bir örnek için ürettiği çıktı. Tahmin yanlış da olabilir.</p></div>
+</div>
+<p class="src" data-src="meb-antalya,aof-giris,aof-matematik"></p>
+
+<h2 id="adimlar">Öğrenme adım adım</h2>
+<figure class="diagram">
+  <svg viewBox="0 0 760 220" role="img" aria-labelledby="p1t p1d">
+    <title id="p1t">Makine öğrenmesi modeli hazırlama adımları</title>
+    <desc id="p1d">Beş kutu soldan sağa sıralanır: Veri toplama, veri hazırlama, eğitim, test, kullanma. Testten eğitime geri dönen bir ok, sonuç yeterli değilse iyileştirme yapıldığını gösterir.</desc>
+    <defs><marker id="ok2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" class="svg-arrow"/></marker></defs>
+    <g font-size="14">
+      <rect x="10" y="50" width="128" height="70" rx="12" class="svg-box"/><text x="74" y="80" text-anchor="middle" class="svg-text" font-weight="700">1. Veri toplama</text><text x="74" y="102" text-anchor="middle" class="svg-muted" font-size="12">örnekler, etiketler</text>
+      <rect x="160" y="50" width="128" height="70" rx="12" class="svg-box"/><text x="224" y="80" text-anchor="middle" class="svg-text" font-weight="700">2. Hazırlama</text><text x="224" y="102" text-anchor="middle" class="svg-muted" font-size="12">temizleme, ayırma</text>
+      <rect x="310" y="50" width="128" height="70" rx="12" class="svg-primary" stroke-width="2"/><text x="374" y="80" text-anchor="middle" class="svg-text" font-weight="700">3. Eğitim</text><text x="374" y="102" text-anchor="middle" class="svg-muted" font-size="12">eğitim kümesiyle</text>
+      <rect x="460" y="50" width="128" height="70" rx="12" class="svg-accent" stroke-width="2"/><text x="524" y="80" text-anchor="middle" class="svg-text" font-weight="700">4. Test</text><text x="524" y="102" text-anchor="middle" class="svg-muted" font-size="12">görülmemiş örneklerle</text>
+      <rect x="610" y="50" width="140" height="70" rx="12" class="svg-box"/><text x="680" y="80" text-anchor="middle" class="svg-text" font-weight="700">5. Kullanma</text><text x="680" y="102" text-anchor="middle" class="svg-muted" font-size="12">yeni verilerde tahmin</text>
+    </g>
+    <path d="M138 85H156M288 85H306M438 85H456M588 85H606" class="svg-line" stroke-width="2" marker-end="url(#ok2)"/>
+    <path d="M524 120 C524 180 374 180 374 124" class="svg-line" stroke-width="2" stroke-dasharray="6 5" marker-end="url(#ok2)"/>
+    <text x="449" y="198" text-anchor="middle" class="svg-muted" font-size="13">Sonuç yeterli değilse: veriyi veya modeli iyileştir, yeniden eğit</text>
+  </svg>
+  <figcaption>Bir makine öğrenmesi modelinin hazırlanma süreci. Adımlar çoğu zaman birkaç kez tekrarlanır.</figcaption>
+</figure>
+<p class="src" data-src="meb-makine,aof-giris,aof-matematik"></p>
+
+<section class="box example" aria-labelledby="ornek">
+  <h2 id="ornek" class="box-label">Günlük yaşamdan bir örnek: İstenmeyen e-posta filtresi</h2>
+  <ol class="steps">
+    <li><strong>Veri ve etiket:</strong> Binlerce e-posta toplanır; her birinin “istenmeyen” ya da “normal” olduğu işaretlenir.</li>
+    <li><strong>Özellikler:</strong> Her e-postadaki kelimeler, bağlantı sayısı, gönderen bilgisi gibi özellikler sayılara çevrilir.</li>
+    <li><strong>Eğitim:</strong> Model hangi özelliklerin istenmeyen e-postalarda sık görüldüğünü öğrenir; örneğin “ücretsiz kazandınız” gibi ifadelere daha fazla ağırlık verir.</li>
+    <li><strong>Test:</strong> Eğitimde hiç kullanılmamış e-postalarla modelin ne kadar doğru ayırdığına bakılır.</li>
+    <li><strong>Tahmin:</strong> Gelen kutuna yeni bir e-posta düştüğünde model “büyük olasılıkla istenmeyen” veya “normal” der. Bazen yanılır; bu yüzden istenmeyen kutusuna düşen önemli bir e-postayı bulabilirsin.</li>
+  </ol>
+  <p class="src" data-src="aof-matematik"></p>
+</section>
+
+<h2 id="egitim-test">Eğitim ve test neden ayrı tutulur?</h2>
+<p>Bir sınavdan önce öğretmen soruların aynısını verse ve öğrenci cevapları ezberlese, sınavdan tam puan alır. Ama bu, konuyu anladığını göstermez. Konuyu anlayıp anlamadığını görmek için <em>yeni</em> sorular sormak gerekir.</p>
+<p>Modeller için de aynısı geçerlidir. Veri genellikle ikiye (bazen üçe) ayrılır: Model <strong>eğitim kümesinden</strong> öğrenir; başarısı ise eğitimde hiç kullanılmamış <strong>test kümesiyle</strong> ölçülür. Modelin öğrendiklerini yeni örneklere aktarabilmesine <strong>genelleme</strong> denir.</p>
+<p class="src" data-src="gml-ayirma,aof-matematik,meb-makine"></p>
+
+<section class="sim" data-widget="memorize" aria-label="Ezberleyen ve genelleyen model etkinliği"></section>
+
+<details class="more">
+  <summary>Biraz daha keşfet: Aşırı uyum (ezberleme) nedir?</summary>
+  <div class="more-body">
+    <p>Bir model eğitim örneklerine fazla uyum sağlarsa, örneklerdeki önemsiz ayrıntıları ve hataları da “öğrenir”. Böyle bir model eğitim kümesinde çok başarılı, yeni örneklerde ise başarısız olur. Buna <strong>aşırı uyum</strong> denir. Tersine, model çok basit kalırsa hem eğitim hem test örneklerinde zayıf kalır (<strong>yetersiz uyum</strong>).</p>
+    <figure class="diagram">
+      <svg viewBox="0 0 620 300" role="img" aria-labelledby="g1t g1d">
+        <title id="g1t">Aşırı uyum grafiği</title>
+        <desc id="g1d">Yatay eksen modelin karmaşıklığını, dikey eksen hatayı gösterir. Eğitim hatası karmaşıklık arttıkça sürekli azalır. Test hatası önce azalır, bir noktadan sonra yeniden artar. En uygun nokta test hatasının en düşük olduğu yerdir.</desc>
+        <path d="M60 20V250H600" class="svg-line" stroke-width="2"/>
+        <text x="330" y="285" text-anchor="middle" class="svg-muted" font-size="13">Modelin karmaşıklığı / eğitim süresi →</text>
+        <text x="24" y="140" text-anchor="middle" class="svg-muted" font-size="13" transform="rotate(-90 24 140)">Hata →</text>
+        <path d="M70 60 C180 160 300 210 590 238" stroke="var(--primary)" stroke-width="3" fill="none"/>
+        <path d="M70 70 C170 170 250 205 320 205 C400 205 480 150 590 70" stroke="var(--warn)" stroke-width="3" fill="none" stroke-dasharray="9 6"/>
+        <line x1="320" y1="30" x2="320" y2="250" stroke="var(--accent)" stroke-width="2" stroke-dasharray="3 5"/>
+        <text x="326" y="44" class="svg-text" font-size="13">en uygun nokta</text>
+        <text x="470" y="232" class="svg-text" font-size="13">Eğitim hatası (düz)</text>
+        <text x="455" y="100" class="svg-text" font-size="13">Test hatası (kesikli)</text>
+        <text x="120" y="40" class="svg-muted" font-size="12">yetersiz uyum</text>
+        <text x="500" y="40" class="svg-muted" font-size="12">aşırı uyum</text>
+      </svg>
+      <figcaption>Eğitim hatasının düşmesi her zaman modelin iyileştiği anlamına gelmez. Asıl ölçüt, görülmemiş örneklerdeki (test) hatadır.</figcaption>
+    </figure>
+    <p class="src" data-src="gml-asiri,meb-makine,aof-matematik"></p>
+  </div>
+</details>
+
+<h2 id="cok-veri">Daha çok veri her zaman daha iyi mi?</h2>
+<p>Çoğu zaman <em>nitelikli ve çeşitli</em> örneklerin artması modele yardımcı olur. Ama “çok veri her zaman iyi sonuç getirir” demek yanlış olur. Sonucu belirleyen yalnızca miktar değil, verinin niteliğidir:</p>
+<ul>
+  <li><strong>Çeşitlilik:</strong> 10.000 kedi fotoğrafının hepsi gündüz çekilmişse, model gece fotoğraflarında zorlanabilir. Aynı türden örnekleri artırmak bu eksikliği kapatmaz.</li>
+  <li><strong>Doğru etiketler:</strong> Yanlış etiketlenmiş örnekler modele yanlış şeyler öğretir.</li>
+  <li><strong>Temsil gücü:</strong> Veri, modelin kullanılacağı gerçek durumların hepsini yeterince yansıtmalıdır. Bazı gruplar az temsil edilirse model onlar için daha çok hata yapar.</li>
+  <li><strong>Denge:</strong> Bir sınıftan çok, diğerinden az örnek varsa model az olanı tanımakta zorlanabilir.</li>
+</ul>
+<p class="src" data-src="aof-giris,gml-dengesiz,gml-onyargi"></p>
+<p>Bunu atölyedeki <a href="atolye.html#sim-egit">Bir modeli eğit</a> ve <a href="atolye.html#sim-denge">Dengeli veri deneyi</a> etkinliklerinde kendin deneyebilirsin.</p>
+
+<details class="more">
+  <summary>Biraz daha keşfet: Öğrenmenin üç türü</summary>
+  <div class="more-body">
+    <ul>
+      <li><strong>Denetimli öğrenme:</strong> Örnekler doğru cevaplarıyla (etiketleriyle) birlikte verilir. E-postayı “istenmeyen/normal” diye ayırmak veya bir evin fiyatını tahmin etmek bu türdendir.</li>
+      <li><strong>Denetimsiz öğrenme:</strong> Etiket verilmez; sistem verideki gizli grupları kendisi bulmaya çalışır. Örneğin benzer alışveriş alışkanlıklarına sahip müşterileri gruplandırmak.</li>
+      <li><strong>Pekiştirmeli öğrenme:</strong> Sistem deneme-yanılmayla öğrenir; iyi sonuç veren davranışlar “ödül”, kötü sonuç verenler “ceza” alır. Oyun oynayan sistemler ve robot denetimi bu türe örnektir.</li>
+    </ul>
+    <p class="src" data-src="aof-giris,meb-makine"></p>
+    <p>Makine öğrenmesindeki “öğrenme”, insan öğrenmesiyle aynı şey değildir. Model konuyu “anlamaz”; verilerdeki istatistiksel ilişkileri parametrelerine yansıtır. Bu yüzden bazen insanın asla yapmayacağı hatalar yapabilir.</p>
+    <p class="src" data-src="meb-antalya,aof-giris"></p>
+  </div>
+</details>
+
+<section class="box mistake" aria-labelledby="yanlis">
+  <h2 id="yanlis" class="box-label">Sık yapılan bir yanlış</h2>
+  <p><strong>“Model eğitim örneklerinin hepsinde doğru cevap verdiyse mükemmel bir modeldir.”</strong></p>
+  <p>Eğitim örneklerinde tam başarı, yalnızca modelin bu örnekleri ezberlemiş olduğunu da gösterebilir. Bir modelin gerçek başarısı, eğitimde hiç görmediği örneklerle ölçülür. Test sonucu iyi olsa bile model, test kümesinde bulunmayan türden durumlarda hata yapabilir.</p>
+</section>
+
+<section class="box discuss" aria-labelledby="tartis">
+  <h2 id="tartis" class="box-label">Sınıfça tartışalım</h2>
+  <p>Bir uygulama, okulumuzdaki ağaç türlerini fotoğraftan tanımayı öğrenecek. Hangi fotoğrafları toplamalıyız? Fotoğrafların hepsini bahar aylarında, aynı açıdan çekersek ne olabilir? Test için hangi fotoğrafları ayırmalıyız?</p>
+</section>
+
+<h2 id="kontrol">Kendini kontrol et</h2>
+<div class="quiz-q" data-answer="b"><fieldset>
+  <legend>1. Makine öğrenmesinde “etiket” nedir?</legend>
+  <label class="opt"><input type="radio" value="a"> Modelin üzerine yapıştırılan ad</label>
+  <label class="opt"><input type="radio" value="b"> Bir örneğin doğru cevabı; örneğin bir fotoğraf için “kedi”</label>
+  <label class="opt"><input type="radio" value="c"> Modelin yaptığı tahmin</label>
+  <div class="fb-data" hidden>
+    <p data-for="a">Etiket modelin adı değil, örneklerle ilgili bir bilgidir.</p>
+    <p data-for="b">Etiketler, modelin neyi öğrenmesi gerektiğini gösteren doğru cevaplardır. Çoğu zaman insanlar tarafından verilir; yanlış etiketler modele yanlış şeyler öğretir.</p>
+    <p data-for="c">Tahmin modelin çıktısıdır; etiket ise doğru cevaptır. Eğitimde ikisi karşılaştırılır.</p>
+  </div>
+</fieldset></div>
+
+<div class="quiz-q" data-answer="c"><fieldset>
+  <legend>2. Test kümesindeki örnekler neden eğitimde kullanılmaz?</legend>
+  <label class="opt"><input type="radio" value="a"> Çünkü test örnekleri daha az önemlidir.</label>
+  <label class="opt"><input type="radio" value="b"> Çünkü eğitim daha hızlı biter.</label>
+  <label class="opt"><input type="radio" value="c"> Çünkü modelin daha önce görmediği örneklerde ne kadar başarılı olduğunu ölçmek isteriz.</label>
+  <div class="fb-data" hidden>
+    <p data-for="a">Test örnekleri çok önemlidir; modelin gerçek başarısını onlarla ölçeriz.</p>
+    <p data-for="b">Asıl amaç hız değil, adil bir ölçümdür.</p>
+    <p data-for="c">Model test örneklerini eğitimde görseydi, onları ezberlemiş olabilirdi ve sonuç bizi yanıltırdı.</p>
+  </div>
+</fieldset></div>
+
+<div class="quiz-q" data-answer="a"><fieldset>
+  <legend>3. Bir modele 10.000 kedi fotoğrafı veriliyor, hepsi gündüz çekilmiş. Gece fotoğraflarında başarıyı artırmak için en iyi adım hangisidir?</legend>
+  <label class="opt"><input type="radio" value="a"> Farklı ışık koşullarında, gece de çekilmiş kedi fotoğrafları eklemek</label>
+  <label class="opt"><input type="radio" value="b"> 10.000 gündüz fotoğrafı daha eklemek</label>
+  <label class="opt"><input type="radio" value="c"> Hiçbir şey; 10.000 fotoğraf her durum için yeterlidir</label>
+  <div class="fb-data" hidden>
+    <p data-for="a">Sorun miktar değil, çeşitliliktir. Model, karşılaşacağı durumları temsil eden örneklerle eğitilmelidir.</p>
+    <p data-for="b">Aynı türden örnekleri artırmak eksik olan durumu (geceyi) öğretmez.</p>
+    <p data-for="c">Örnek sayısı tek başına yeterlilik göstermez; örneklerin temsil gücü önemlidir.</p>
+  </div>
+</fieldset></div>
+
+<section class="box remember" aria-labelledby="akilda">
+  <h2 id="akilda" class="box-label">Aklında kalsın</h2>
+  <ol>
+    <li>Makine öğrenmesinde model, etiketli örneklerdeki örüntülerden öğrenir ve yeni örnekler için tahmin üretir.</li>
+    <li>Modelin başarısı, eğitimde hiç görmediği örneklerle (test kümesiyle) ölçülür; eğitimdeki başarı ezber olabilir.</li>
+    <li>Verinin miktarı kadar, belki daha çok, çeşitliliği, etiketlerinin doğruluğu ve temsil gücü önemlidir.</li>
+  </ol>
+</section>
+
+<div id="complete-row"></div>
+<nav id="pager"></nav>
+</article>
+</main>
+</div>
+<footer id="site-footer"></footer>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/search-index.js"></script>
+<script src="assets/js/site.js"></script>
+<script src="assets/js/shapelab.js"></script>
+<script src="assets/js/sims.js"></script>
+</body>
+</html>

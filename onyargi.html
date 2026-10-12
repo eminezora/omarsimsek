@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Veri, önyargı ve adalet · Yapay Zekâyı Keşfet</title>
+<meta name="description" content="Tek taraflı veya dengesiz verilerle eğitilen sistemlerin neden bazı durumlarda daha çok hata yaptığı ve bunun nasıl azaltılabileceği.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@500;600;700&family=Noto+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/site.css">
+<script>try{var t=localStorage.getItem("yz-tema");if(t)document.documentElement.setAttribute("data-theme",JSON.parse(t));if(JSON.parse(localStorage.getItem("yz-sunum")))document.documentElement.classList.add("present-root")}catch(e){}</script>
+</head>
+<body data-page="onyargi">
+<a class="skip" href="#icerik">İçeriğe geç</a>
+<header id="site-header"></header>
+<div class="layout">
+<nav id="sidebar"></nav>
+<main id="icerik" tabindex="-1">
+<article class="content">
+
+<p class="eyebrow">Konu 8 · Adalet</p>
+<h1>Veri, önyargı ve adalet</h1>
+<p class="hook">Bir meyve ayıklama makinesi kırmızı elmaları neredeyse hiç şaşırmadan tanıyor ama yeşil elmaları sık sık “armut” sanıyor. Makine yeşil elmalara karşı “kötü niyetli” mi? Yoksa sorun başka bir yerde mi?</p>
+
+<section class="box learn" aria-labelledby="ogren">
+  <h2 id="ogren" class="box-label">Bu sayfada ne öğreneceksin?</h2>
+  <ul>
+    <li>Yapay zekâda “önyargı” kavramının ne anlama geldiğini,</li>
+    <li>tek taraflı veya dengesiz verilerin bazı durumlarda neden daha çok hataya yol açtığını,</li>
+    <li>tek bir genel başarı yüzdesinin neden yanıltıcı olabileceğini,</li>
+    <li>önyargıyı azaltmak için neler yapılabileceğini.</li>
+  </ul>
+</section>
+
+<h2 id="nedir">Yapay zekâda önyargı ne demek?</h2>
+<p>Gündelik dilde önyargı, bir kişinin bir şey hakkında önceden ve haksız biçimde fikir sahibi olmasıdır. Yapay zekâda ise önyargı (yanlılık) genellikle bir sistemin <strong>belirli durumlarda veya belirli gruplar için sistematik olarak daha fazla hata yapması ya da onları haksız biçimde farklı değerlendirmesi</strong> anlamına gelir.</p>
+<p>Sistemin bir niyeti yoktur. Önyargı çoğu zaman şuralardan gelir:</p>
+<ul>
+  <li><strong>Veriden:</strong> Bazı durumlar eğitim verisinde az bulunur veya hiç bulunmaz.</li>
+  <li><strong>Etiketlerden:</strong> Örnekleri etiketleyen kişilerin hataları ya da alışkanlıkları veriye yansır.</li>
+  <li><strong>Geçmişten:</strong> Geçmişte adil olmayan kararlar verildiyse, bu kararlardan öğrenen sistem onları tekrarlayabilir. Buna <em>tarihsel önyargı</em> denir.</li>
+  <li><strong>Problemin tanımından ve kullanım biçiminden:</strong> Neyin “başarı” sayıldığı ve sistemin nerede kullanıldığı da sonucu etkiler.</li>
+</ul>
+<p class="src" data-src="aof-giris,gml-onyargi"></p>
+
+<h2 id="tek-tarafli">Tek taraflı veri nasıl hataya yol açar?</h2>
+<figure class="diagram">
+  <svg viewBox="0 0 720 300" role="img" aria-labelledby="f1t f1d">
+    <title id="f1t">Dengesiz meyve verisi örneği</title>
+    <desc id="f1d">Solda eğitim verisi: on sekiz kırmızı elma, iki yeşil elma ve on armut. Sağda sonuç: Model kırmızı elmaları doğru tanıyor, yeşil elmaların çoğunu armut sanıyor; çünkü eğitimde yeşil renkli meyvelerin çoğu armuttu.</desc>
+    <text x="20" y="28" class="svg-text" font-size="16" font-weight="700">Eğitim verisi</text>
+    <g id="kirmizi-elmalar">
+      <g fill="#d64545" stroke="rgba(0,0,0,.3)">
+        <circle cx="40" cy="60" r="13"/><circle cx="72" cy="60" r="13"/><circle cx="104" cy="60" r="13"/><circle cx="136" cy="60" r="13"/><circle cx="168" cy="60" r="13"/><circle cx="200" cy="60" r="13"/>
+        <circle cx="40" cy="94" r="13"/><circle cx="72" cy="94" r="13"/><circle cx="104" cy="94" r="13"/><circle cx="136" cy="94" r="13"/><circle cx="168" cy="94" r="13"/><circle cx="200" cy="94" r="13"/>
+        <circle cx="40" cy="128" r="13"/><circle cx="72" cy="128" r="13"/><circle cx="104" cy="128" r="13"/><circle cx="136" cy="128" r="13"/><circle cx="168" cy="128" r="13"/><circle cx="200" cy="128" r="13"/>
+      </g>
+    </g>
+    <text x="232" y="98" class="svg-text" font-size="14">18 kırmızı elma</text>
+    <g fill="#5fae3d" stroke="rgba(0,0,0,.3)"><circle cx="40" cy="172" r="13"/><circle cx="72" cy="172" r="13"/></g>
+    <text x="96" y="177" class="svg-text" font-size="14">yalnızca 2 yeşil elma</text>
+    <g fill="#9cbf3a" stroke="rgba(0,0,0,.3)">
+      <path d="M40 210c-8 0-12 8-12 16s6 16 12 16 12-8 12-16-4-16-12-16zM40 200v-6"/><path d="M72 210c-8 0-12 8-12 16s6 16 12 16 12-8 12-16-4-16-12-16z"/><path d="M104 210c-8 0-12 8-12 16s6 16 12 16 12-8 12-16-4-16-12-16z"/><path d="M136 210c-8 0-12 8-12 16s6 16 12 16 12-8 12-16-4-16-12-16z"/><path d="M168 210c-8 0-12 8-12 16s6 16 12 16 12-8 12-16-4-16-12-16z"/>
+    </g>
+    <text x="196" y="232" class="svg-text" font-size="14">10 armut (hepsi yeşil)</text>
+    <defs><marker id="ok3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" class="svg-arrow"/></marker></defs>
+    <path d="M400 150H450" class="svg-line" stroke-width="2.5" marker-end="url(#ok3)"/>
+    <rect x="462" y="40" width="246" height="220" rx="14" class="svg-box"/>
+    <text x="585" y="68" text-anchor="middle" class="svg-text" font-size="15" font-weight="700">Modelin öğrendiği</text>
+    <text x="585" y="96" text-anchor="middle" class="svg-text" font-size="13">“Yeşilse büyük olasılıkla armuttur.”</text>
+    <circle cx="500" cy="140" r="13" fill="#d64545"/><text x="522" y="145" class="svg-text" font-size="13">→ elma ✓ doğru</text>
+    <circle cx="500" cy="186" r="13" fill="#5fae3d"/><text x="522" y="191" class="svg-text" font-size="13">→ “armut” ✗ yanlış</text>
+    <text x="585" y="236" text-anchor="middle" class="svg-muted" font-size="12">Sorun makinede değil, verinin dengesinde.</text>
+  </svg>
+  <figcaption>Örnek durum: Eğitim verisinde yeşil elma çok az, yeşil meyvelerin çoğu armut. Model, rengi kestirme bir ipucu olarak öğrenir ve yeşil elmalarda yanılır. (Öğretim amacıyla hazırlanmış örnek.)</figcaption>
+</figure>
+<p>Bu durumda makine yeşil elmalara karşı bir “niyet” taşımıyor. Eğitim verisi gerçek dünyayı dengeli biçimde yansıtmadığı için, rengi kestirme bir ipucu olarak öğrenmiş. Veri kümesinde az bulunan durumlar için model daha az örnek görür ve bu durumlarda daha sık yanılır.</p>
+<p class="src" data-src="aof-giris,gml-dengesiz"></p>
+
+<section class="box example" aria-labelledby="deney">
+  <h2 id="deney" class="box-label">Atölyeden gerçek bir sonuç</h2>
+  <p>Atölyedeki <a href="atolye.html#sim-denge">Dengeli veri deneyinde</a> bir model üçgen, kare ve daireleri tanımayı öğreniyor ve her seferinde aynı 30 şekillik test kümesiyle sınanıyor:</p>
+  <div class="table-wrap"><table>
+    <thead><tr><th>Eğitim verisi (üçgen / kare / daire)</th><th>Üçgen</th><th>Kare</th><th>Daire</th><th>Genel başarı</th></tr></thead>
+    <tbody>
+      <tr><td>10 / 10 / 10 (dengeli)</td><td>10/10</td><td>8/10</td><td>10/10</td><td>28/30 (%93)</td></tr>
+      <tr><td>30 / 3 / 30 (kare az)</td><td>10/10</td><td><strong>1/10</strong></td><td>10/10</td><td>21/30 (%70)</td></tr>
+    </tbody>
+  </table></div>
+  <p>Kare örnekleri azaltıldığında genel başarı hâlâ %70 görünüyor; ama kareler için başarı 10'da 1'e düşüyor. <strong>Tek bir genel yüzde, bir grubun ne kadar zorlandığını gizleyebilir.</strong> Bu yüzden sistemler her durum veya grup için ayrı ayrı test edilmelidir.</p>
+  <p class="note">Bu sayılar sitedeki simülasyonun gerçek hesap sonuçlarıdır; atölyede aynı dağılımı seçerek kendin de görebilirsin.</p>
+  <p class="src" data-src="gml-dogruluk,gml-dengesiz"></p>
+</section>
+
+<h2 id="gercek-dunya">Gerçek dünyadan örnekler</h2>
+<ul>
+  <li><strong>Yüz tanıma:</strong> ABD Ulusal Standartlar ve Teknoloji Enstitüsünün (NIST) 2019'da yayımladığı geniş bir çalışmada, incelenen yüz tanıma algoritmalarının çoğunda aynı kişinin iki fotoğrafını eşleştirme başarısının yaş, cinsiyet ve köken gibi demografik gruplara göre değiştiği bulundu. Farkın büyüklüğü algoritmaya, kullanım amacına ve veriye bağlıydı; en doğru algoritmalar çok daha az hata yaptı.</li>
+  <li><strong>Dil ve ses:</strong> Eğitim verisi belirli dillerde yoğunlaştığında, modeller az kaynaklı dillerde daha düşük başarı gösterebilir. Benzer biçimde, ses tanıma sistemleri eğitim verisinde az bulunan ağızlarda daha sık yanılabilir. Sorun konuşan kişilerde değil, verinin çeşitliliğindedir.</li>
+  <li><strong>Coğrafya:</strong> Veri belirli bölgelerde toplandığında, sistemler başka bölgelerdeki nesneleri, bitkileri veya durumları yeterince tanıyamayabilir.</li>
+</ul>
+<p class="src" data-src="nist,aof-giris"></p>
+
+<section class="sim" aria-labelledby="etkinlik">
+  <h2 id="etkinlik">Etkinlik: Bu veri kümesinde ne eksik?</h2>
+  <p>Her durumda toplanan verinin, sistemin kullanılacağı gerçek durumları yeterince temsil edip etmediğine karar ver.</p>
+  <div data-widget="sorter">
+<script type="application/json">
+{"choices":["Çeşitli ve dengeli görünüyor","Bazı durumlar eksik veya az"],
+"items":[
+{"q":"Kuş türlerini tanıyacak bir uygulama için yalnızca kitaplardan alınmış, net ve gündüz çekilmiş kuş fotoğrafları","a":1,"fb":"Gerçek hayatta fotoğraflar bulanık, uzaktan, dal arasından veya akşam çekilmiş olabilir. Bu durumlar veride yok."},
+{"q":"Okul bahçesindeki atıkları türüne göre ayıracak bir model için farklı günlerde, farklı ışıkta çekilmiş; ıslak ve kuru, ezik ve sağlam atık fotoğrafları","a":0,"fb":"Modelin karşılaşacağı farklı koşullar veride temsil ediliyor. Yine de test kümesiyle ayrıca denenmeli."},
+{"q":"Öğrencilerin el yazısını tanıyacak bir model için yalnızca bir sınıftaki 5 öğrencinin yazıları","a":1,"fb":"El yazıları kişiden kişiye çok değişir. Az sayıda kişinin yazısıyla eğitilen model, başka öğrencilerin yazısında zorlanır."},
+{"q":"Çocukların kullanacağı sesli bir eğitim oyunu için yalnızca yetişkinlerin ses kayıtları","a":1,"fb":"Çocukların sesi ve konuşma biçimi yetişkinlerden farklıdır. Oyunu kullanacak kişilerin sesleri veride yer almalı."},
+{"q":"Meyve ayıklama makinesi için her renkten ve boyuttan, olgun ve ham meyvelerin farklı açılardan fotoğrafları","a":0,"fb":"Bu veri, kırmızı ve yeşil elma örneğindeki eksikliği gideriyor; renk artık kestirme bir ipucu olmuyor."},
+{"q":"Yalnızca tek bir şehrin geçmiş verileriyle eğitilip tüm ülkede kullanılacak bir trafik tahmin modeli","a":1,"fb":"Farklı şehirlerin yol yapısı, nüfusu ve alışkanlıkları farklıdır. Model diğer şehirlerde daha çok yanılabilir."}
+]}
+</script>
+  </div>
+</section>
+
+<h2 id="azaltmak">Önyargı nasıl azaltılır?</h2>
+<p>Önyargıyı tamamen ortadan kaldırmak çoğu zaman mümkün değildir; ama etkileri azaltılabilir ve sürekli izlenmelidir:</p>
+<ol class="steps">
+  <li><strong>Çeşitli ve dengeli veri toplamak:</strong> Sistemin kullanılacağı tüm durumları ve kişileri temsil eden örnekler aramak.</li>
+  <li><strong>Ayrı ayrı test etmek:</strong> Başarıyı yalnızca genel olarak değil, her durum ve grup için ayrı ölçmek.</li>
+  <li><strong>Etiketlemeyi dikkatle yapmak:</strong> Açık kurallar belirlemek, farklı kişilerin etiketlerini karşılaştırmak.</li>
+  <li><strong>Farklı kişileri sürece katmak:</strong> Sistemden etkilenecek kişilerin görüşünü almak.</li>
+  <li><strong>İnsan denetimini korumak:</strong> Önemli kararlarda son sözü insana bırakmak ve itiraz yolu açmak.</li>
+</ol>
+<p class="src" data-src="aof-giris,unesco-etik,meb-politika"></p>
+<p>Türkiye'nin eğitimde yapay zekâ politika belgesi de eğitimde kullanılacak sistemlerin veri gizliliği, algoritmik önyargıların önlenmesi ve açık, izlenebilir karar süreçleri gibi ilkelere dayanması gerektiğini vurgular.</p>
+<p class="src" data-src="meb-politika"></p>
+
+<details class="more">
+  <summary>Biraz daha keşfet: “Adil” ne demek?</summary>
+  <div class="more-body">
+    <p>Adaletin tek bir tanımı yoktur. Bir sistemin her grupta aynı oranda doğru cevap vermesini mi, her gruba aynı oranda “evet” demesini mi, yoksa her bireyi kendi durumuna göre değerlendirmesini mi isteriz? Bu sorular yalnızca teknik değil, toplumsal ve etik sorulardır. Bu yüzden yapay zekâ geliştiren ekiplerde mühendislerin yanında eğitimciler, hukukçular, etik uzmanları ve sistemden etkilenen kişiler de yer almalıdır.</p>
+    <p class="src" data-src="aof-giris,unesco-etik"></p>
+    <p>Çocuklar söz konusu olduğunda kurallar daha da önemlidir. UNICEF'in rehberi, çocuklara yönelik yapay zekâ sistemlerinde ayrımcılık yapmama ve adalet ilkesini temel gereklilikler arasında sayar.</p>
+    <p class="src" data-src="unicef"></p>
+  </div>
+</details>
+
+<section class="box mistake" aria-labelledby="yanlis">
+  <h2 id="yanlis" class="box-label">Sık yapılan bir yanlış</h2>
+  <p><strong>“Bilgisayarlar tarafsızdır; çünkü yalnızca matematik yaparlar.”</strong></p>
+  <p>Hesaplar matematikseldir ama hangi verilerin toplanacağına, nasıl etiketleneceğine ve neyin “başarı” sayılacağına insanlar karar verir. Veri belirli bir zamanda ve yerde toplanır; geçmişteki eşitsizlikleri veya eksiklikleri taşıyabilir. Model de bunları öğrenir.</p>
+</section>
+
+<section class="box discuss" aria-labelledby="tartis">
+  <h2 id="tartis" class="box-label">Sınıfça tartışalım</h2>
+  <p>Okulumuzda kullanılmak üzere sesle çalışan bir kütüphane asistanı hazırlanacak. Asistanın herkesi aynı derecede iyi anlaması için hangi ses örnekleri toplanmalı? Asistan adil mi, nasıl test ederdiniz?</p>
+</section>
+
+<h2 id="kontrol">Kendini kontrol et</h2>
+<div class="quiz-q" data-answer="b"><fieldset>
+  <legend>1. Yeşil elmaları “armut” sanan meyve ayıklama makinesindeki sorunun en olası nedeni nedir?</legend>
+  <label class="opt"><input type="radio" value="a"> Makinenin yeşil elmalara karşı olumsuz bir niyeti var.</label>
+  <label class="opt"><input type="radio" value="b"> Eğitim verisinde yeşil elma çok az, yeşil meyvelerin çoğu armuttu.</label>
+  <label class="opt"><input type="radio" value="c"> Yeşil elmalar tanınamayacak kadar farklıdır.</label>
+  <div class="fb-data" hidden>
+    <p data-for="a">Makinelerin niyeti yoktur; öğrendikleri örüntüleri uygularlar.</p>
+    <p data-for="b">Model, veride gördüğü kestirme ipucunu (renk) öğrenmiştir. Daha dengeli veri bu hatayı azaltır.</p>
+    <p data-for="c">Yeterli ve çeşitli örnekle eğitilen bir model yeşil elmaları da tanıyabilir.</p>
+  </div>
+</fieldset></div>
+
+<div class="quiz-q" data-answer="c"><fieldset>
+  <legend>2. Bir modelin genel başarısı %90. Bu bilgi tek başına neden yeterli değildir?</legend>
+  <label class="opt"><input type="radio" value="a"> Çünkü %90 her zaman düşük bir başarıdır.</label>
+  <label class="opt"><input type="radio" value="b"> Çünkü yüzdeler hiçbir şey anlatmaz.</label>
+  <label class="opt"><input type="radio" value="c"> Çünkü model bazı durumlarda veya gruplarda çok daha başarısız olabilir; genel yüzde bunu gizleyebilir.</label>
+  <div class="fb-data" hidden>
+    <p data-for="a">%90 bazı işler için iyi, bazıları için yetersiz olabilir; asıl mesele hataların nerede toplandığıdır.</p>
+    <p data-for="b">Yüzdeler faydalıdır ama ayrıntıya bakmak gerekir.</p>
+    <p data-for="c">Atölyedeki deneyde genel başarı %70 iken kareler için başarı 10'da 1'di. Her grup için ayrı ölçüm yapılmalıdır.</p>
+  </div>
+</fieldset></div>
+
+<div class="quiz-q" data-answer="a"><fieldset>
+  <legend>3. Geçmişte kulübe hep 8. sınıflar alındığı için 5. sınıflara düşük puan veren bir puanlama aracı hangi önyargıya örnektir?</legend>
+  <label class="opt"><input type="radio" value="a"> Tarihsel önyargı</label>
+  <label class="opt"><input type="radio" value="b"> Hesaplama hatası</label>
+  <label class="opt"><input type="radio" value="c"> Önyargı yoktur; araç doğru çalışıyor.</label>
+  <div class="fb-data" hidden>
+    <p data-for="a">Araç, geçmişteki seçimlerden öğrendiği için eski alışkanlığı sürdürüyor. Geçmiş veriler adil değilse, onlardan öğrenen sistem de adil olmayabilir.</p>
+    <p data-for="b">Hesaplar doğru yapılıyor olabilir; sorun öğrenilen örüntüde.</p>
+    <p data-for="c">Araç teknik olarak “çalışıyor” olabilir ama bir grubu sistematik olarak dezavantajlı duruma düşürüyor.</p>
+  </div>
+</fieldset></div>
+
+<section class="box remember" aria-labelledby="akilda">
+  <h2 id="akilda" class="box-label">Aklında kalsın</h2>
+  <ol>
+    <li>Yapay zekâda önyargı, sistemin bazı durumlarda veya gruplarda sistematik olarak daha çok hata yapmasıdır; çoğu zaman veriden gelir.</li>
+    <li>Genel başarı yüzdesi, bir grubun ne kadar zorlandığını gizleyebilir; her durum ayrı test edilmelidir.</li>
+    <li>Çeşitli veri, dikkatli etiketleme, ayrı ayrı test ve insan denetimi önyargıyı azaltır.</li>
+  </ol>
+</section>
+
+<div id="complete-row"></div>
+<nav id="pager"></nav>
+</article>
+</main>
+</div>
+<footer id="site-footer"></footer>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/search-index.js"></script>
+<script src="assets/js/site.js"></script>
+<script src="assets/js/shapelab.js"></script>
+<script src="assets/js/sims.js"></script>
+</body>
+</html>
