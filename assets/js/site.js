@@ -91,8 +91,15 @@
       box.innerHTML = '<p>Öğrenme ilerlemen: <strong>' + done + " / " + TOPICS.length + "</strong> konu</p>" +
         '<div class="progress-bar" role="progressbar" aria-label="Tamamlanan konular" aria-valuemin="0" aria-valuemax="' + TOPICS.length + '" aria-valuenow="' + done + '"><span style="width:' + Math.round(done / TOPICS.length * 100) + '%"></span></div>' +
         '<button type="button" id="reset-progress">İlerlemeyi sıfırla</button>';
-      document.getElementById("reset-progress").onclick = function () {
-        if (confirm("Bu tarayıcıdaki ilerleme kaydı silinsin mi?")) { setProg({}); refreshProgressUI(); syncCompleteBtn(); }
+      var rb = document.getElementById("reset-progress");
+      rb.onclick = function () {
+        if (rb.getAttribute("data-confirm") !== "1") {
+          rb.setAttribute("data-confirm", "1");
+          rb.textContent = "Emin misin? Silmek için tekrar tıkla";
+          setTimeout(function () { if (document.body.contains(rb)) { rb.removeAttribute("data-confirm"); rb.textContent = "İlerlemeyi sıfırla"; } }, 5000);
+          return;
+        }
+        setProg({}); refreshProgressUI(); syncCompleteBtn();
       };
     }
     document.querySelectorAll(".toc li[data-id]").forEach(function (li) {

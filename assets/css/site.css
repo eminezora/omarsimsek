@@ -107,7 +107,7 @@ kbd { border: 1px solid var(--line); border-bottom-width: 2px; border-radius: 6p
 
 /* ---------- Üst çubuk ---------- */
 .site-header {
-  position: sticky; top: 0; z-index: 40;
+  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 40;
   height: var(--header-h);
   display: flex; align-items: center; gap: 12px;
   padding: 0 16px;
